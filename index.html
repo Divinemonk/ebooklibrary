@@ -1,2 +1,155 @@
+<!DOCTYPE html>
 <html>
-  
+<head>
+    <title>Free eBook Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .book {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .book img {
+            width: 100px;
+            margin-right: 10px;
+        }
+        
+        .book-details {
+            flex: 1;
+        }
+        
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .book-author {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            padding: 5px;
+            width: 300px;
+            font-size: 16px;
+        }
+        
+        .search-button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Free eBook Library</h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
+            <button class="search-button" onclick="searchBooks()">Search</button>
+        </div>
+        
+        <div id="bookList">
+            <!-- Book items will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Book data (sample data)
+        var books = [
+            {
+                title: "Book 1",
+                author: "Author 1",
+                cover: "book1.jpg",
+                downloadLink: "book1.pdf"
+            },
+            {
+                title: "Book 2",
+                author: "Author 2",
+                cover: "book2.jpg",
+                downloadLink: "book2.pdf"
+            },
+            // Add more book objects here
+        ];
+
+        // Display books on page load
+        window.onload = function() {
+            displayBooks(books);
+        };
+
+        // Function to display books
+        function displayBooks(books) {
+            var bookListContainer = document.getElementById("bookList");
+
+            // Clear existing book list
+            bookListContainer.innerHTML = "";
+
+            // Loop through each book and create book elements
+            books.forEach(function(book) {
+                var bookItem = document.createElement("div");
+                bookItem.className = "book";
+
+                var bookCover = document.createElement("img");
+                bookCover.src = book.cover;
+
+                var bookDetails = document.createElement("div");
+                bookDetails.className = "book-details";
+
+                var bookTitle = document.createElement("h2");
+                bookTitle.className = "book-title";
+                bookTitle.innerText = book.title;
+
+                var bookAuthor = document.createElement("p");
+                bookAuthor.className = "book-author";
+                bookAuthor.innerText = "By " + book.author;
+
+                var downloadButton = document.createElement("a");
+                downloadButton.href = book.downloadLink;
+                downloadButton.innerText = "Download";
+                downloadButton.target = "_blank";
+
+                // Append elements to the book item
+                bookDetails.appendChild(bookTitle);
+                bookDetails.appendChild(bookAuthor);
+                bookDetails.appendChild(downloadButton);
+
+                bookItem.appendChild(bookCover);
+                bookItem.appendChild(bookDetails);
+
+                // Append book item to the book list container
+                bookListContainer.appendChild(bookItem);
+            });
+        }
+
+        // Function to search books
+        function searchBooks() {
+            var input = document.getElementById("searchInput").value.toLowerCase();
+            var filteredBooks = books.filter(function(book) {
+                return book.title.toLowerCase().includes(input);
+            });
+
+            displayBooks(filteredBooks);
+        }
+    </script>
+</body>
+</html>
