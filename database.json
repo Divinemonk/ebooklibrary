@@ -1,0 +1,16 @@
+{
+    "books": [
+        {
+            "title": "Book 1",
+            "author": "Author 1",
+            "cover": "book1.jpg",
+            "downloadLink": "book1.pdf"
+        },
+        {
+            "title": "Book 2",
+            "author": "Author 2",
+            "cover": "book2.jpg",
+            "downloadLink": "book2.pdf"
+        }
+    ]
+}
