@@ -1,16 +1,16 @@
 {
     "books": [
         {
-            "title": "Book 1",
-            "author": "Author 1",
-            "cover": "book1.jpg",
-            "downloadLink": "book1.pdf"
+            "title": "The Hacker Playbook 1",
+            "author": "Peter Kim",
+            "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/02d5d7ae-ee8b-4d89-8831-2215e83a365d",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook1/The-Hacker-Playbook-1.pdf"
         },
         {
-            "title": "Book 2",
-            "author": "Author 2",
-            "cover": "book2.jpg",
-            "downloadLink": "book2.pdf"
+            "title": "The Hacker Playbook 1",
+            "author": "Peter Kim",
+            "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/e27c94fa-f74c-47b7-9438-44b4f82b461c",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook2/The-Hacker-Playbook-2.pdf"
         }
     ]
 }
