@@ -1,6 +1,6 @@
 # _Welcome_ to eBook Library
 
-# [Redirect to website, to explore the amazing world of :books:](https://divinemonk.github.io/ebooklibrary/)
+# [Redirect to website, to explore the amazing world of `ebooks`](https://divinemonk.github.io/ebooklibrary/)
 
 <br>
 <!-- |Title|Author|Direct Download Link|
