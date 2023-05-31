@@ -76,29 +76,18 @@
     </div>
 
     <script>
-        // Book data (sample data)
-        var books = [
-            {
-                title: "Book 1",
-                author: "Author 1",
-                cover: "book1.jpg",
-                downloadLink: "book1.pdf"
-            },
-            {
-                title: "Book 2",
-                author: "Author 2",
-                cover: "book2.jpg",
-                downloadLink: "book2.pdf"
-            },
-            // Add more book objects here
-        ];
+        // Fetch book data from JSON file
+        fetch('database.json')
+            .then(response => response.json())
+            .then(data => {
+                // Pass the fetched data to the displayBooks function
+                displayBooks(data.books);
+            })
+            .catch(error => {
+                console.log('Error fetching book data:', error);
+            });
 
-        // Display books on page load
-        window.onload = function() {
-            displayBooks(books);
-        };
-
-        // Function to display books
+        // Display books
         function displayBooks(books) {
             var bookListContainer = document.getElementById("bookList");
 
@@ -142,7 +131,7 @@
             });
         }
 
-        // Function to search books
+        // Search books
         function searchBooks() {
             var input = document.getElementById("searchInput").value.toLowerCase();
             var filteredBooks = books.filter(function(book) {
