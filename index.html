@@ -81,6 +81,7 @@
             .then(data => {
                 // Pass the fetched data to the displayBooks function
                 displayBooks(data.books);
+                console.log(data);
             })
             .catch(error => {
                 console.log('Error fetching book data:', error);
