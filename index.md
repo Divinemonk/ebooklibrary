@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Free eBook Library
+title: eBook Library
 ---
 
 <style>
