@@ -1,2 +1,2 @@
-# _Webcome_ to EBook Store
+# _Welcome_ to EBook Store
 
