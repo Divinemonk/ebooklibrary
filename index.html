@@ -76,16 +76,39 @@
 
     <script>
         // Fetch book data from JSON file
-        fetch('database.json')
-            .then(response => response.json())
-            .then(data => {
-                // Pass the fetched data to the displayBooks function
-                displayBooks(data.books);
+//         fetch('database.json')
+//             .then(response => response.json())
+//             .then(data => {
+//                 // Pass the fetched data to the displayBooks function
+//                 displayBooks(data.books);
+//                 console.log(data);
+//             })
+//             .catch(error => {
+//                 console.log('Error fetching book data:', error);
+//             });
+        
+        // Create an XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Define the path to the JSON file
+        var jsonFile = 'database.json';
+
+        // Send a GET request to fetch the JSON data
+        xhr.open('GET', jsonFile, true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
                 console.log(data);
-            })
-            .catch(error => {
-                console.log('Error fetching book data:', error);
-            });
+                displayBooks(data.books);
+            } else {
+                console.log('Error fetching book data. Status code:', xhr.status);
+            }
+        };
+        xhr.onerror = function() {
+            console.log('Error fetching book data. Network error.');
+        };
+        xhr.send();
+        
 
         // Display books
         function displayBooks(books) {
