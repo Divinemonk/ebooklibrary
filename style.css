@@ -3,7 +3,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    /* background-color: #fff; */
 }
 
 .container {
@@ -72,6 +71,8 @@ body {
 
 .center {
     width: 60%;
+    background-color: #fff;
+
 }
 
 h1 {
@@ -259,6 +260,9 @@ h1 {
     padding: 20px;
     box-sizing: border-box;
 }
+
+
+
 
 
 /* -------------- Media Queries ------------------ */
