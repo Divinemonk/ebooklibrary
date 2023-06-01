@@ -52,20 +52,28 @@ body {
     margin-bottom: 20px;
 }
 
+/* quote tab background grey */
+
 .quote {
     margin-top: 40px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
-.quote blockquote {
-    font-size: 18px;
-    font-style: italic;
-}
-
-.quote cite {
+.quote-label {
     font-size: 14px;
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
+    color: #444444;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.random-quote {
+    font-size: 16px;
+    font-style: italic;
+    color: #333;
+    border-top: 1px solid #ccc;
 }
 
 

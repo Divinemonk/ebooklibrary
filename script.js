@@ -206,23 +206,15 @@ function handleSearchInput() {
 function getRandomQuote() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.quotable.io/quotes/random", true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-        var quote = JSON.parse(xhr.responseText);
-        var quoteContent = quote.content;
-        var quoteAuthor = quote.author;
-        document.getElementById("random-quote").textContent = quoteContent;
-        document.getElementById("author").textContent = "- " + quoteAuthor;
+    xhr.onload = function () {
+        if (this.status == 200) {
+            var quote = JSON.parse(this.responseText);
+            document.getElementById("random-quote").innerHTML = quote[0].content;
         }
-    };
+    }
     xhr.send();
 }
 
 
 // Call the function to show a random quote initially
 getRandomQuote();
-
-
-
-
-console.log('@end');
