@@ -228,3 +228,5 @@ getRandomQuote();
 // Attach the event listener to the search input field
 var searchInput = document.getElementById("searchInput");
 searchInput.addEventListener('input', handleSearchInput);
+
+console.log('@end');
