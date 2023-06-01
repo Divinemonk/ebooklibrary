@@ -8,8 +8,8 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    /* justify-content: space-between;
+    align-items: flex-start; */
 }
 
 
@@ -76,7 +76,7 @@ body {
 
 }
 
-/* h1 {
+h1 {
     text-align: center;
     margin-bottom: 30px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -228,7 +228,7 @@ body {
 .heart {
     color: red;
 }
- */
+
 
 /* ----------------- Right ------------------ */
 
