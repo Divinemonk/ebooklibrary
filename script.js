@@ -9,7 +9,7 @@ var jsonFile = 'database.json';
 // Declare global variables
 var books = []; // Array to store all books
 var currentPage = 1; // Current page number
-var booksPerPage = 6; // Number of books to display per page
+var booksPerPage = 9; // Number of books to display per page
 var tagList = []; // Array to store unique tags
 
 
@@ -29,11 +29,11 @@ if (xhr.status === 200) {
     renderPagination();
     renderTags();
 } else {
-    console.log('Error fetching book data. Status code:', xhr.status);
+    console.log('Error fetching book data | Status code:', xhr.status);
 }
 };
 xhr.onerror = function () {
-console.log('Error fetching book data. Network error.');
+console.log('Error fetching book data | Status code:', xhr.status);
 };
 xhr.send();
 
@@ -203,6 +203,7 @@ function handleSearchInput() {
     displayBooks(currentPage, filteredBooks);
     renderPagination();
 }
+
 
 function getRandomQuote() {
     var xhr = new XMLHttpRequest();
