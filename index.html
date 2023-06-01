@@ -153,23 +153,35 @@
             cursor: pointer;
         } */
 
+        .container {
+            position: relative; /* Add relative positioning to container */
+        }
+
+        .side-panel {
+            position: fixed; /* Make the side panel fixed */
+            top: 0;
+            right: 0;
+            width: 200px; /* Adjust the width as needed */
+            height: 100%; /* Make the side panel cover the entire height */
+            background-color: #f2f2f2;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         .tag-container {
-            text-align: left; /* Align tags to the left */
+            text-align: left;
             margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start; /* Align tags to the start */
         }
 
         .tag {
-            display: inline-block;
-            margin-right: 10px;
-            margin-bottom: 10px; /* Add margin bottom for spacing */
+            display: block; /* Display tags as block elements */
+            margin-bottom: 10px;
             padding: 5px 10px;
             background-color: #f2f2f2;
             color: #888;
             cursor: pointer;
         }
+
 
         .tag:hover,
         .tag.active {
