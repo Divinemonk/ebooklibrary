@@ -405,37 +405,31 @@
 
         // Search books based on the input text and selected filter option
         function searchBooks() {
-        var input = document.getElementById("searchInput").value.toLowerCase();
-        var selectedTag = document.querySelector('.tag.active').innerText;
-        var selectedFilter = document.querySelector('.filter.active').dataset.filter;
-        var filteredBooks = [];
+            var input = document.getElementById("searchInput").value.toLowerCase();
+            var selectedTag = document.querySelector('.tag.active').innerText;
+            var filteredBooks = [];
 
-        if (input !== "") {
-            // Filter books based on the selected tag
-            var tagFilteredBooks = (selectedTag !== 'All') ? books.filter(function(book) {
-            return book.tags.includes(selectedTag);
-            }) : books;
+            if (input !== "") {
+                // Filter books based on the selected tag
+                var tagFilteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
+                return book.tags.includes(selectedTag);
+                }) : books;
 
-            if (selectedFilter === 'tag') {
-            // If the tag filter is selected, display books based on the selected tag
-            filteredBooks = tagFilteredBooks;
+                // Filter books based on the input text
+                filteredBooks = tagFilteredBooks.filter(function (book) {
+                return book.title.toLowerCase().includes(input);
+                });
             } else {
-            // If the title filter is selected, filter books based on the input text
-            tagFilteredBooks.forEach(function(book) {
-                if (book.title.toLowerCase().includes(input)) {
-                filteredBooks.push(book);
-                }
-            });
+                // If the input is empty, display all books based on the selected tag
+                filteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
+                return book.tags.includes(selectedTag);
+                }) : books;
             }
-        } else {
-            // If the input is empty, display all books based on the selected tag
-            filteredBooks = (selectedTag !== 'All') ? books.filter(function(book) {
-            return book.tags.includes(selectedTag);
-            }) : books;
-        }
 
-        displayBooks(currentPage, filteredBooks);
-        }
+            // Display the filtered books
+            displayBooks(currentPage, filteredBooks);
+            renderPagination();
+            }
 
     </script>
 </body>
