@@ -231,65 +231,66 @@
 
         // Function to extract unique tags from the books data
         function extractTags() {
-        var allTags = ['All']; // Include 'All' tag to show all books initially
+            var allTags = ['All']; // Include 'All' tag to show all books initially
 
-        books.forEach(function (book) {
-            book.tags.forEach(function (tag) {
-            if (!allTags.includes(tag)) {
-                allTags.push(tag);
-            }
+            books.forEach(function (book) {
+                book.tags.forEach(function (tag) {
+                if (!allTags.includes(tag)) {
+                    allTags.push(tag);
+                }
+                });
             });
-        });
 
-        tagList = allTags;
+            tagList = allTags;
         }
 
         // Function to render the tags
         function renderTags() {
-        var tagListContainer = document.getElementById('tagList');
-        tagListContainer.innerHTML = '';
+            var tagListContainer = document.getElementById('tagList');
+            tagListContainer.innerHTML = '';
 
-        tagList.forEach(function (tag) {
-            var tagElement = document.createElement('div');
-            tagElement.innerText = tag;
-            tagElement.className = 'tag';
-            tagElement.addEventListener('click', function () {
-            handleTagClick(tag);
+            tagList.forEach(function (tag) {
+                var tagElement = document.createElement('div');
+                tagElement.innerText = tag;
+                tagElement.className = 'tag';
+                tagElement.addEventListener('click', function () {
+                handleTagClick(tag);
+                });
+
+                tagListContainer.appendChild(tagElement);
             });
-
-            tagListContainer.appendChild(tagElement);
-        });
         }
 
         // Function to handle tag click event
         function handleTagClick(tag) {
-        // Toggle active class on the clicked tag
-        var clickedTag = document.querySelector('.tag.active');
-        if (clickedTag) {
-            clickedTag.classList.remove('active');
-        }
-
-        var tagElements = document.getElementsByClassName('tag');
-        for (var i = 0; i < tagElements.length; i++) {
-            if (tagElements[i].innerText === tag) {
-            tagElements[i].classList.add('active');
-            break;
+            // Toggle active class on the clicked tag
+            var clickedTag = document.querySelector('.tag.active');
+            if (clickedTag) {
+                clickedTag.classList.remove('active');
             }
+
+            var tagElements = document.getElementsByClassName('tag');
+            for (var i = 0; i < tagElements.length; i++) {
+                if (tagElements[i].innerText === tag) {
+                tagElements[i].classList.add('active');
+                break;
+                }
+            }
+
+            // Filter books based on the selected tag
+            var filteredBooks = [];
+            if (tag !== 'All') {
+                filteredBooks = books.filter(function (book) {
+                return book.tags.includes(tag);
+                });
+            } else {
+                filteredBooks = books;
+            }
+
+            // Display the filtered books
+            displayBooks(currentPage, filteredBooks);
         }
 
-        // Filter books based on the selected tag
-        var filteredBooks = [];
-        if (tag !== 'All') {
-            filteredBooks = books.filter(function (book) {
-            return book.tags.includes(tag);
-            });
-        } else {
-            filteredBooks = books;
-        }
-
-        // Display the filtered books
-        displayBooks(currentPage, filteredBooks);
-        }
 
         // Display books based on the current page and filtered book array
         function displayBooks(page, booksArray) {
