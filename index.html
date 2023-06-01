@@ -123,6 +123,10 @@
             background-color: #45a049;
         }
 
+        .book.large-height {
+            height: 400px;
+        }
+
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -165,7 +169,7 @@
         // Declare global variables
         var books = []; // Array to store all books
         var currentPage = 1; // Current page number
-        var booksPerPage = 8; // Number of books to display per page
+        var booksPerPage = 6; // Number of books to display per page
 
         // Send a GET request to fetch the JSON data
         xhr.open('GET', jsonFile, true);
@@ -207,6 +211,56 @@
                 var bookTitle = document.createElement('h2');
                 bookTitle.className = 'book-title';
                 bookTitle.innerText = book.title;
+
+                var bookAuthor = document.createElement('p');
+                bookAuthor.className = 'book-author';
+                bookAuthor.innerText = 'By ' + book.author;
+
+                var downloadButton = document.createElement('a');
+                downloadButton.href = book.downloadLink;
+                downloadButton.innerText = 'Download';
+                downloadButton.target = '_blank';
+
+                bookDetails.appendChild(bookTitle);
+                bookDetails.appendChild(bookAuthor);
+                bookDetails.appendChild(downloadButton);
+
+                bookItem.appendChild(bookCover);
+                bookItem.appendChild(bookDetails);
+
+                bookListContainer.appendChild(bookItem);
+            }
+        }
+
+
+        // Display books based on the current page
+        function displayBooks(page) {
+            var bookListContainer = document.getElementById('bookList');
+            bookListContainer.innerHTML = '';
+
+            var startIndex = (page - 1) * booksPerPage;
+            var endIndex = startIndex + booksPerPage;
+
+            for (var i = startIndex; i < endIndex && i < books.length; i++) {
+                var book = books[i];
+
+                var bookItem = document.createElement('div');
+                bookItem.className = 'book';
+
+                var bookCover = document.createElement('img');
+                bookCover.src = book.cover;
+
+                var bookDetails = document.createElement('div');
+                bookDetails.className = 'book-details';
+
+                var bookTitle = document.createElement('h2');
+                bookTitle.className = 'book-title';
+                bookTitle.innerText = book.title;
+
+                // Adjust box height based on title length
+                if (book.title.length > 20) {
+                    bookItem.classList.add('large-height');
+                }
 
                 var bookAuthor = document.createElement('p');
                 bookAuthor.className = 'book-author';
