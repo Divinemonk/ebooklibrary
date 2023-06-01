@@ -53,8 +53,17 @@ body {
     border-radius: 3px;
 }
 
-.social-media a:hover {
-    background-color: #4f7551;
+#g a:hover {
+    background-color: #0D1117;
+}
+#i a:hover {
+    background-color: #F4067D;
+}
+#y a:hover {
+    background-color: #FF0000;
+}
+#t a:hover {
+    background-color: #1D9BF0;
 }
 
 .social-media h3 {
