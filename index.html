@@ -149,6 +149,7 @@
 
         // Search books
         function searchBooks() {
+            console.log("book searched")
             var input = document.getElementById("searchInput").value.toLowerCase();
             var filteredBooks = books.filter(function(book) {
                 return book.title.toLowerCase().includes(input);
