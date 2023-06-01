@@ -403,8 +403,8 @@
         }
 
 
-        // Search books based on the input text and selected filter option
-        function searchBooks() {
+        // Function to handle search input event
+        function handleSearchInput() {
             var input = document.getElementById("searchInput").value.toLowerCase();
             var selectedTag = document.querySelector('.tag.active').innerText;
             var filteredBooks = [];
@@ -412,24 +412,28 @@
             if (input !== "") {
                 // Filter books based on the selected tag
                 var tagFilteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
-                return book.tags.includes(selectedTag);
+                    return book.tags.includes(selectedTag);
                 }) : books;
 
                 // Filter books based on the input text
                 filteredBooks = tagFilteredBooks.filter(function (book) {
-                return book.title.toLowerCase().includes(input);
+                    return book.title.toLowerCase().includes(input);
                 });
             } else {
                 // If the input is empty, display all books based on the selected tag
                 filteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
-                return book.tags.includes(selectedTag);
+                    return book.tags.includes(selectedTag);
                 }) : books;
             }
 
             // Display the filtered books
             displayBooks(currentPage, filteredBooks);
             renderPagination();
-            }
+        }
+
+        // Attach the event listener to the search input field
+        var searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener('input', handleSearchInput);
 
     </script>
 </body>
