@@ -397,7 +397,7 @@
 
         // Render pagination
         function renderPagination() {
-            var totalPages = Math.ceil(books.length / booksPerPage);
+            var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
             var paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
 
@@ -407,9 +407,9 @@
                 pageLink.innerText = i;
                 pageLink.className = i === currentPage ? 'active' : '';
 
-                pageLink.addEventListener('click', function() {
+                pageLink.addEventListener('click', function () {
                     currentPage = parseInt(this.innerText);
-                    displayBooks(currentPage, books);
+                    displayBooks(currentPage, filteredBooks);
                     var activeLink = document.querySelector('.pagination a.active');
                     activeLink.classList.remove('active');
                     this.classList.add('active');
@@ -418,6 +418,7 @@
                 paginationContainer.appendChild(pageLink);
             }
         }
+
 
 
         // Function to handle search input event
