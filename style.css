@@ -17,7 +17,7 @@ body {
 /* ----------------- Left ------------------ */
 
 .left {
-    width: 15%;
+    width: 8%;
     padding: 20px;
     position: sticky; /* Make the side panel sticky */
 }
