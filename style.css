@@ -23,7 +23,7 @@ body {
 }
 
 .left-panel {
-    width: 100px;
+    width: 50px;
     padding: 20px;
 }
 
@@ -197,27 +197,6 @@ h1 {
     background-color: #45a049;
 }
 
-.tag-container {
-    text-align: left;
-    margin-top: 10px;
-}
-
-.tag {
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    background-color: #f2f2f2;
-    color: #888;
-    cursor: pointer;
-    height: 100%;
-    overflow-y: auto;
-}
-
-.tag:hover,
-.tag.active {
-    background-color: #4CAF50;
-    color: #fff;
-}
 
 .footer {
     text-align: center;
@@ -240,6 +219,28 @@ h1 {
 .side-panel {
     width: 100px;
     padding: 20px;
+}
+
+.tag-container {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.tag {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    color: #888;
+    cursor: pointer;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.tag:hover,
+.tag.active {
+    background-color: #4CAF50;
+    color: #fff;
 }
 
 
