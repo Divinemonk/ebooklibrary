@@ -19,13 +19,12 @@ xhr.onload = function () {
 if (xhr.status === 200) {
     var data = JSON.parse(xhr.responseText);
     books = data.books; // Assign the fetched book data to the books variable
-    filteredBooks = books; // Assign the fetched book data to the filteredBooks variable
 
     // Extract tags from the books data
     extractTags();
 
     // Display books and render pagination
-    displayBooks(currentPage, filteredBooks);
+    displayBooks(currentPage, books);
     handleTagClick('All');
     renderPagination();
     renderTags();
@@ -112,6 +111,8 @@ function displayBooks(page, booksArray) {
     var startIndex = (page - 1) * booksPerPage;
     var endIndex = Math.min(startIndex + booksPerPage, booksArray.length);
 
+    console.log(startIndex, endIndex);
+
     for (var i = startIndex; i < endIndex; i++) {
         var book = booksArray[i];
 
@@ -151,6 +152,10 @@ function displayBooks(page, booksArray) {
 
 // Render pagination
 function renderPagination() {
+    if (filteredBooks === undefined) {
+        filteredBooks = books;
+    }
+
     var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
     var paginationContainer = document.getElementById('pagination');
     paginationContainer.innerHTML = '';
