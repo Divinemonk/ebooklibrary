@@ -116,6 +116,8 @@
             <!-- Book items will be dynamically added here -->
         </div>
 
+        <div id="pagination" class="pagination"></div>
+
         <div class="footer">
             <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
             <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
@@ -129,8 +131,10 @@
         // Define the path to the JSON file
         var jsonFile = 'database.json';
 
-        // Declare the books variable outside of the xhr.onload function
-        var books;
+        // Declare global variables
+        var books = []; // Array to store all books
+        var currentPage = 1; // Current page number
+        var booksPerPage = 8; // Number of books to display per page
 
         // Send a GET request to fetch the JSON data
         xhr.open('GET', jsonFile, true);
@@ -138,7 +142,8 @@
             if (xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
                 books = data.books; // Assign the fetched book data to the books variable
-                displayBooks(data.books);
+                displayBooks(currentPage);
+                renderPagination();
             } else {
                 console.log('Error fetching book data. Status code:', xhr.status);
             }
@@ -147,40 +152,40 @@
             console.log('Error fetching book data. Network error.');
         };
         xhr.send();
-        
 
-        // Display books
-        function displayBooks(books) {
-            var bookListContainer = document.getElementById("bookList");
+        // Display books based on the current page
+        function displayBooks(page) {
+            var bookListContainer = document.getElementById('bookList');
+            bookListContainer.innerHTML = '';
 
-            // Clear existing book list
-            bookListContainer.innerHTML = "";
+            var startIndex = (page - 1) * booksPerPage;
+            var endIndex = startIndex + booksPerPage;
 
-            // Loop through each book and create book elements
-            books.forEach(function(book) {
-                var bookItem = document.createElement("div");
-                bookItem.className = "book";
+            for (var i = startIndex; i < endIndex && i < books.length; i++) {
+                var book = books[i];
 
-                var bookCover = document.createElement("img");
+                var bookItem = document.createElement('div');
+                bookItem.className = 'book';
+
+                var bookCover = document.createElement('img');
                 bookCover.src = book.cover;
 
-                var bookDetails = document.createElement("div");
-                bookDetails.className = "book-details";
+                var bookDetails = document.createElement('div');
+                bookDetails.className = 'book-details';
 
-                var bookTitle = document.createElement("h2");
-                bookTitle.className = "book-title";
+                var bookTitle = document.createElement('h2');
+                bookTitle.className = 'book-title';
                 bookTitle.innerText = book.title;
 
-                var bookAuthor = document.createElement("p");
-                bookAuthor.className = "book-author";
-                bookAuthor.innerText = "By " + book.author;
+                var bookAuthor = document.createElement('p');
+                bookAuthor.className = 'book-author';
+                bookAuthor.innerText = 'By ' + book.author;
 
-                var downloadButton = document.createElement("a");
+                var downloadButton = document.createElement('a');
                 downloadButton.href = book.downloadLink;
-                downloadButton.innerText = "Download";
-                downloadButton.target = "_blank";
+                downloadButton.innerText = 'Download';
+                downloadButton.target = '_blank';
 
-                // Append elements to the book item
                 bookDetails.appendChild(bookTitle);
                 bookDetails.appendChild(bookAuthor);
                 bookDetails.appendChild(downloadButton);
@@ -188,9 +193,33 @@
                 bookItem.appendChild(bookCover);
                 bookItem.appendChild(bookDetails);
 
-                // Append book item to the book list container
                 bookListContainer.appendChild(bookItem);
-            });
+            }
+        }
+
+        // Render pagination
+        function renderPagination() {
+            var totalPages = Math.ceil(books.length / booksPerPage);
+            var paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            for (var i = 1; i <= totalPages; i++) {
+                var pageLink = document.createElement('a');
+                pageLink.href = '#';
+                pageLink.innerText = i;
+                pageLink.className = i === currentPage ? 'active' : '';
+
+                pageLink.addEventListener('click', function() {
+                    currentPage = parseInt(this.innerText);
+                    displayBooks(currentPage);
+
+                    var activeLink = document.querySelector('.pagination a.active');
+                    activeLink.classList.remove('active');
+                    this.classList.add('active');
+                });
+
+                paginationContainer.appendChild(pageLink);
+            }
         }
 
         // Search books
