@@ -27,23 +27,25 @@ body {
     bottom: 0;
     background-color: #fff;
     z-index: 1;
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .logo img {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 10%;
 }
 
-.links {
+.social-media {
     margin-top: 30px;
 }
 
-.links a {
+.social-media a {
     display: block;
     margin-bottom: 10px;
 }
 
-.links img {
+.social-media img {
     width: 30px;
     height: 30px;
 }
