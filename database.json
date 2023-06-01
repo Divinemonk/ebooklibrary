@@ -17,6 +17,12 @@
             "author": "Peter Kim",
             "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/c53e8cfc-dc46-4d0c-94b9-1cb5e5536841",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook3/The-Hacker-Playbook-3.pdf"
+        },
+        {
+            "title": "Social Engineering: The Science of Human Hacking",
+            "author": "Christopher Hadnagy",
+            "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/2e2091e6-a460-4890-b2aa-17ea1f234829",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheScienceOfHumanHacking/Social-Engineering-The-Science-of-Human-Hacking.pdf"
         }
     ]
 }
