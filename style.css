@@ -1,9 +1,9 @@
-/* Global styles */
+/* -------------- Global styles ------------------ */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
     padding: 20px;
 }
 
-.left-panel {
+/* .left-panel {
     width: 320px;
     padding: 20px;
 }
@@ -60,7 +60,7 @@ body {
     font-weight: bold;
     margin-top: 10px;
     display: block;
-}
+} */
 
 .center {
     width: 60%;
@@ -249,9 +249,11 @@ h1 {
     color: red;
 }
 
-/* Media Queries */
 
-/* Tablets */
+
+/* -------------- Media Queries ------------------ */
+
+/* ----------------- Tablets --------------------- */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -263,7 +265,7 @@ h1 {
     }
 }
 
-/* Mobile Phones */
+/* -------------- Mobile Phones ------------------ */
 @media (max-width: 480px) {
     .container {
         padding: 5px;

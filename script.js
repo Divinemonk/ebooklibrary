@@ -1,14 +1,17 @@
 // Create an XMLHttpRequest object
 var xhr = new XMLHttpRequest();
 
+
 // Define the path to the JSON file
 var jsonFile = 'database.json';
+
 
 // Declare global variables
 var books = []; // Array to store all books
 var currentPage = 1; // Current page number
-var booksPerPage = 6; // Number of books to display per page
+var booksPerPage = 9; // Number of books to display per page
 var tagList = []; // Array to store unique tags
+
 
 // Send a GET request to fetch the JSON data
 xhr.open('GET', jsonFile, true);
@@ -33,6 +36,7 @@ xhr.onerror = function () {
 console.log('Error fetching book data. Network error.');
 };
 xhr.send();
+
 
 
 // Function to extract unique tags from the books data
@@ -67,6 +71,7 @@ function renderTags() {
         tagContainer.appendChild(tagElement);
     });
 }
+
 
 // Function to handle tag click event
 function handleTagClick(tag) {
@@ -197,6 +202,7 @@ function handleSearchInput() {
     renderPagination();
 }
 
+
 function getRandomQuote() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.quotable.io/quotes/random", true);
@@ -211,6 +217,7 @@ function getRandomQuote() {
     };
     xhr.send();
 }
+
 
 // Call the function to show a random quote initially
 getRandomQuote();
