@@ -238,6 +238,7 @@ h1 {
 }
 
 .side-panel {
+    width: 100px;
     padding: 20px;
 }
 
