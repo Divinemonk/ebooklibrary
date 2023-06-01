@@ -9,7 +9,7 @@ var jsonFile = 'database.json';
 // Declare global variables
 var books = []; // Array to store all books
 var currentPage = 1; // Current page number
-var booksPerPage = 9; // Number of books to display per page
+var booksPerPage = 6; // Number of books to display per page
 var tagList = []; // Array to store unique tags
 
 
