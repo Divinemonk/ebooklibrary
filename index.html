@@ -259,7 +259,6 @@
         var currentPage = 1; // Current page number
         var booksPerPage = 9; // Number of books to display per page
         var tagList = []; // Array to store unique tags
-        var filteredBooks = []; // Array to store filtered tags
 
         // Send a GET request to fetch the JSON data
         xhr.open('GET', jsonFile, true);
@@ -336,6 +335,7 @@
             }
 
             // Filter books based on the selected tag
+            var filteredBooks = [];
             if (tag !== 'All') {
                 filteredBooks = books.filter(function (book) {
                 return book.tags.includes(tag);
