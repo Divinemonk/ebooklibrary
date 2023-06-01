@@ -197,6 +197,8 @@ function handleSearchInput() {
         }) : books;
     }
 
+    console.log('searched!');
+
     // Display the filtered books
     displayBooks(currentPage, filteredBooks);
     renderPagination();

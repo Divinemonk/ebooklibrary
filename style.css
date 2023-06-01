@@ -23,6 +23,7 @@ body {
 }
 
 .left-panel {
+    width: 50%;
     padding: 20px;
 }
 
@@ -233,23 +234,12 @@ h1 {
 
 .right {
     width: 25%;
-    position: relative;
+    position: sticky;
 }
 
 .side-panel {
-    position: sticky; /* Make the side panel sticky */
-    background-color: #f2f2f2;
     padding: 20px;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    background-color: #f2f2f2;
-    padding: 20px;
-    box-sizing: border-box
 }
-
 
 
 
