@@ -9,7 +9,7 @@ var jsonFile = 'database.json';
 // Declare global variables
 var books = []; // Array to store all books
 var currentPage = 1; // Current page number
-var booksPerPage = 9; // Number of books to display per page
+var booksPerPage = 6; // Number of books to display per page
 var tagList = []; // Array to store unique tags
 
 
@@ -19,12 +19,13 @@ xhr.onload = function () {
 if (xhr.status === 200) {
     var data = JSON.parse(xhr.responseText);
     books = data.books; // Assign the fetched book data to the books variable
+    filteredBooks = books; // Assign the fetched book data to the filteredBooks variable
 
     // Extract tags from the books data
     extractTags();
 
     // Display books and render pagination
-    displayBooks(currentPage, books);
+    displayBooks(currentPage, filteredBooks);
     handleTagClick('All');
     renderPagination();
     renderTags();
@@ -36,7 +37,6 @@ xhr.onerror = function () {
 console.log('Error fetching book data | Status code:', xhr.status);
 };
 xhr.send();
-
 
 
 // Function to extract unique tags from the books data
