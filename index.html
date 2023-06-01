@@ -155,7 +155,7 @@
 
         .tags-container {
             display: flex;
-            justify-content: flex-end;
+            justify-content: right;
             flex-wrap: wrap;
             margin-top: 20px;
             margin-bottom: 20px;
@@ -394,7 +394,6 @@
         }
 
 
-
         // Render pagination
         function renderPagination() {
             var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
@@ -418,7 +417,6 @@
                 paginationContainer.appendChild(pageLink);
             }
         }
-
 
 
         // Function to handle search input event
