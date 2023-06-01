@@ -28,30 +28,58 @@
         }
 
         .left {
-            width: 25%;
+            width: 15%;
             position: relative;
             padding: 20px;
         }
 
-        .logo img {
-            width: 50px; /* Adjust the width as needed */
-            height: 50px; /* Adjust the height as needed */
+        .left-panel {
+            width: 320px;
+            background-color: #f9f9f9;
+            padding: 20px;
         }
 
-        .referral-links a {
+            .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .links {
+            margin-top: 30px;
+        }
+
+        .links a {
             display: block;
             margin-bottom: 10px;
-            color: #000;
-            text-decoration: none;
         }
 
-        .ad-panel {
-            margin-top: 20px;
+        .links img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ad-column {
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            margin-top: 40px;
+        }
+
+        .quote blockquote {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .quote cite {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
         }
 
         .center {
-            /* flex: 2 1 66.66%; */
-            width: 50%;
+            width: 60%;
         }
 
         .right {
@@ -270,21 +298,36 @@
 </head>
 <body>
     <div class="container">
-        <div class="column left">
+        <div class="left-panel">
             <div class="logo">
               <img src="favicon.ico" alt="Logo">
             </div>
-            <div class="referral-links">
-              <a href="https://github.com" target="_blank">GitHub</a>
-              <a href="https://example.com" target="_blank">Link 2</a>
-              <a href="https://example.com" target="_blank">Link 3</a>
-              <!-- Add more referral links as needed -->
+            <div class="links">
+              <a href="https://github.com"><img src="github-logo.png" alt="GitHub"></a>
+              <a href="https://instagram.com"><img src="instagram-logo.png" alt="Instagram"></a>
+              <a href="https://youtube.com"><img src="youtube-logo.png" alt="YouTube"></a>
             </div>
-            <div class="ad-panel">
-              <!-- Place your ad content here -->
-              <img src="ad-image.jpg" alt="Advertisement">
+            <div class="ad-column">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- Ad Unit Code -->
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="YOUR-ADSENSE-CLIENT-ID"
+                   data-ad-slot="YOUR-ADSENSE-AD-SLOT"
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            <div class="quote">
+              <blockquote id="random-quote">
+                Loading quote...
+                <cite>Book Title</cite>
+              </blockquote>
             </div>
         </div>
+          
 
         <div class="column center">
             <h1>eBook Library</h1>
