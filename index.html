@@ -28,10 +28,7 @@
         }
 
         .center {
-            /* Center column styles (books display) */
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            flex: 2 1 66.66%; /* Set the center column to take up more space */
         }
 
         .right {
@@ -288,8 +285,8 @@
 
         <div class="column right">
             <div class="side-panel">
+                <span class="tag-label">Tags:</span>
                 <div class="tag-container">
-                    <span class="tag-label">Tags:</span>
                     <div class="tag active" onclick="filterByTag(this)">All</div>
                     <!-- Other tags will be dynamically added here -->
                 </div>
