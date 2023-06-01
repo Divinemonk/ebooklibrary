@@ -3,6 +3,16 @@
 <head>
     <title>eBook Library</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K9XMQBLM0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5K9XMQBLM0');
+    </script>
+
     <style>
         /* Global styles */
         body {
@@ -11,19 +21,27 @@
             font-family: Arial, sans-serif;
         }
 
-        .container {
-            display: flex; /* Use flexbox for layout */
+        /* .container {
+            display: flex; /* Use flexbox for layout 
             flex-wrap: wrap;
+        } */
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
-        .column {
-            flex: 1 1 33.33%; /* Divide the container into 3 equal columns */
+        /* .column {
+            flex: 1 1 33.33%; 
             box-sizing: border-box;
             padding: 20px;
-        }
+        } */
 
         .left {
-            flex: 0 0 25%; /* Set the width of the left panel */
+            /* flex: 0 0 25%; */
+            width: 25%;
             box-sizing: border-box;
             padding: 20px;
         }
@@ -46,11 +64,12 @@
         }
 
         .center {
-            flex: 2 1 66.66%; /* Set the center column to take up more space */
+            flex: 2 1 66.66%;
+            width: 50%;
         }
 
         .right {
-            /* Right column styles (tags) */
+            width: 25%;
             position: relative;
         }
 
