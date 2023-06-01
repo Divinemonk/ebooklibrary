@@ -52,8 +52,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* quote tab background grey */
-
 .quote {
     margin-top: 40px;
     padding: 20px;
@@ -81,9 +79,9 @@ body {
 /* ----------------- Center ------------------ */
 
 .center {
-    width: 75%;
+    width: 65%;
     background-color: #fff;
-
+    margin-left: 240px;
 }
 
 h1 {
