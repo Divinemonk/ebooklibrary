@@ -301,31 +301,31 @@
     <div class="container">
         <div class="left-panel">
             <div class="logo">
-              <img src="favicon.ico" alt="Logo">
+                 <img src="favicon.ico" alt="Logo">
             </div>
             <div class="links">
-              <a href="https://github.com"><img src="github-logo.png" alt="GitHub"></a>
-              <a href="https://instagram.com"><img src="instagram-logo.png" alt="Instagram"></a>
-              <a href="https://youtube.com"><img src="youtube-logo.png" alt="YouTube"></a>
+                <a href="https://github.com"><img src="github-logo.png" alt="GitHub"></a>
+                <a href="https://instagram.com"><img src="instagram-logo.png" alt="Instagram"></a>
+                <a href="https://youtube.com"><img src="youtube-logo.png" alt="YouTube"></a>
             </div>
             <div class="ad-column">
-              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-              <!-- Ad Unit Code -->
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-client="YOUR-ADSENSE-CLIENT-ID"
-                   data-ad-slot="YOUR-ADSENSE-AD-SLOT"
-                   data-ad-format="auto"
-                   data-full-width-responsive="true"></ins>
-              <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-              </script>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Ad Unit Code -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="YOUR-ADSENSE-CLIENT-ID"
+                    data-ad-slot="YOUR-ADSENSE-AD-SLOT"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="quote">
-              <blockquote id="random-quote">
-                Loading quote...
-                <cite>Book Title</cite>
-              </blockquote>
+                
+                <blockquote id="random-quote">
+                    <!-- Quote will be dynamically added here -->
+                </blockquote>
             </div>
         </div>
           
@@ -351,6 +351,7 @@
                 <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
             </div>
         </div>
+
 
         <div class="column right">
             <div class="side-panel">
@@ -563,29 +564,23 @@
             renderPagination();
         }
 
-        function showRandomQuote() {
+        function getRandomQuote() {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "https://api.quotable.io/quotes/random", true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText);
-                var randomQuote = data.content;
-
-                // Display the quote
-                var quoteElement = document.getElementById("random-quote");
-                quoteElement.textContent = randomQuote;
-                } else {
-                console.log("Error fetching random quote. Status:", xhr.status);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                var quote = JSON.parse(xhr.responseText);
+                var quoteContent = quote.content;
+                var quoteAuthor = quote.author;
+                document.getElementById("random-quote").textContent = quoteContent;
+                document.getElementById("author").textContent = "- " + quoteAuthor;
                 }
-            };
-            xhr.onerror = function() {
-                console.log("Error fetching random quote. Network error.");
             };
             xhr.send();
         }
 
         // Call the function to show a random quote initially
-        showRandomQuote();
+        getRandomQuote();
 
 
         // Attach the event listener to the search input field
