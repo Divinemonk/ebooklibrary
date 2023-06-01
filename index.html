@@ -109,10 +109,6 @@
             -webkit-line-clamp: 2;
         }
 
-        .small-font {
-            font-size: 16px;
-        }
-
         .book-author {
             margin-top: 5px;
             color: #888;
@@ -352,8 +348,7 @@
 
                 pageLink.addEventListener('click', function() {
                     currentPage = parseInt(this.innerText);
-                    displayBooks(currentPage);
-
+                    displayBooks(currentPage, books);
                     var activeLink = document.querySelector('.pagination a.active');
                     activeLink.classList.remove('active');
                     this.classList.add('active');
