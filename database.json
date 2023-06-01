@@ -30,7 +30,8 @@
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/2e2091e6-a460-4890-b2aa-17ea1f234829",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheScienceOfHumanHacking/Social-Engineering-The-Science-of-Human-Hacking.pdf",
-            "tags": ["social-engineering", "humans"]
+            "tags": ["social engineering",
+                     "humans"]
         },
         {
             "id": 5,
@@ -38,7 +39,8 @@
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/f7c667ba-aa25-4e47-9652-3ade6903d2f0",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheArtOfHumanHacking/Social-Engineering-The-Art-of-Human-Hacking.pdf",
-            "tags": ["social-engineering", "humans"]
+            "tags": ["social engineering", 
+                     "humans"]
         },
         {
             "id": 6,
@@ -46,15 +48,18 @@
             "author": "Mark Ludwig",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/d0718ee7-28dc-412c-8e41-734f492955b4",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheGiantBlackBookOfComputerViruses/The-Giant-Black-Book-of-Computer-Viruses.pdf",
-            "tags": ["viruses", "computers"]
+            "tags": ["viruses", 
+                     "computers"]
         },
         {
             "id": 7,
             "title": "Psych Experiments",
-            "author": "Michael A. Britt           ",
+            "author": "Michael A. Britt",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/beefd17e-3358-48b4-b08e-5abd08b75522",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/PsychExperiments/Psych-Experiments.pdf",
-            "tags": ["psychology", "humans", "experiments"]
+            "tags": ["psychology", 
+                     "humans", 
+                     "experiments"]
         },
         {
             "id": 8,
@@ -62,7 +67,8 @@
             "author": "Paul Kleinman",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/4f42a6dd-77f1-46dc-a057-da4c41049981",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/Psych101Psychology/Psych-101-Psychology-Facts-Basics-Statistics-Tests-and-More.pdf",
-            "tags": ["psychology", "humans"]
+            "tags": ["psychology", 
+                     "humans"]
         },
         {
             "id": 9,
@@ -70,17 +76,16 @@
             "author": "Héctor García & Francesc Miralles",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/6797789f-b89d-4fac-a0a3-08861ceaf30f",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/Ikigai/Ikigai.pdf",
-            "tags": ["Personal Development",
-                     "Self-Help",
+            "tags": ["personal development",
+                     "self-help",
                      "Philosophy",
-                     "Japanese Culture",
-                     "Purpose",
-                     "Happiness",
-                     "Well-being",
-                     "Mindfulness",
-                     "Life Balance",
-                     "Meaningful Living"
-                    ]
+                     "japanese culture",
+                     "purpose",
+                     "happiness",
+                     "well-being",
+                     "mindfulness",
+                     "life balance",
+                     "meaningful living"]
         }        
     ]
 }
