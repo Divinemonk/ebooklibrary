@@ -226,38 +226,40 @@
         };
         xhr.send();
 
+
         // Function to extract unique tags from the books data
         function extractTags() {
             var allTags = ['All']; // Include 'All' tag to show all books initially
 
             books.forEach(function (book) {
                 book.tags.forEach(function (tag) {
-                if (!allTags.includes(tag)) {
-                    allTags.push(tag);
-                }
+                    if (!allTags.includes(tag)) {
+                        allTags.push(tag);
+                    }
                 });
             });
 
             tagList = allTags;
-            console.log(tagList)
+            renderTags(); // Call the renderTags function to display the tags
         }
 
         // Function to render the tags
         function renderTags() {
-            var tagListContainer = document.getElementById('tagList');
-            tagListContainer.innerHTML = '';
+            var tagContainer = document.querySelector('.tag-container');
+            tagContainer.innerHTML = ''; // Clear the existing tags
 
             tagList.forEach(function (tag) {
                 var tagElement = document.createElement('div');
                 tagElement.innerText = tag;
                 tagElement.className = 'tag';
                 tagElement.addEventListener('click', function () {
-                handleTagClick(tag);
+                    handleTagClick(tag);
                 });
 
-                tagListContainer.appendChild(tagElement);
+                tagContainer.appendChild(tagElement);
             });
         }
+
 
         // Function to handle tag click event
         function handleTagClick(tag) {
