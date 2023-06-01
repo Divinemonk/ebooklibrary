@@ -23,8 +23,26 @@
         }
 
         .left {
-            /* Left column styles... */
-            position: relative;
+            flex: 0 0 25%; /* Set the width of the left panel */
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .logo img {
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+        }
+
+        .referral-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .ad-panel {
+            margin-top: 20px;
+            /* Add styles for the ad panel */
         }
 
         .center {
@@ -166,20 +184,6 @@
             background-color: #45a049;
         }
 
-        /* .tag-container {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-right: 10px;
-            padding: 5px 10px;
-            background-color: #f2f2f2;
-            color: #888;
-            cursor: pointer;
-        } */
-
         .container {
             position: relative; /* Add relative positioning to container */
         }
@@ -207,8 +211,9 @@
             background-color: #f2f2f2;
             color: #888;
             cursor: pointer;
+            height: 100%; /* Set a fixed height for the tags column */
+            overflow-y: auto; /* Enable vertical scrolling */
         }
-
 
         .tag:hover,
         .tag.active {
@@ -261,6 +266,22 @@
 </head>
 <body>
     <div class="container">
+        <div class="column left">
+            <div class="logo">
+              <img src="favicon.ico" alt="Logo">
+            </div>
+            <div class="referral-links">
+              <a href="https://github.com" target="_blank">GitHub</a>
+              <a href="https://example.com" target="_blank">Link 2</a>
+              <a href="https://example.com" target="_blank">Link 3</a>
+              <!-- Add more referral links as needed -->
+            </div>
+            <div class="ad-panel">
+              <!-- Place your ad content here -->
+              <img src="ad-image.jpg" alt="Advertisement">
+            </div>
+        </div>
+
         <div class="column center">
             <h1>eBook Library</h1>
             
