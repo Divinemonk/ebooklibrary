@@ -4,64 +4,98 @@
     <title>eBook Library | A Divinemonk creation!</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
-        
+
         .container {
-            max-width: 600px;
+            width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
         h1 {
             text-align: center;
-            font-family: Helvetica, Geneva, Verdana, sans-serif
+            margin-bottom: 30px;
         }
-        
-        .book {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .book img {
-            width: 100px;
-            margin-right: 10px;
-        }
-        
-        .book-details {
-            flex: 1;
-        }
-        
-        .book-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 0;
-        }
-        
-        .book-author {
-            font-size: 14px;
-            margin: 5px 0;
-        }
-        
+
         .search-container {
-            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
             margin-bottom: 20px;
         }
-        
+
         .search-input {
+            width: 70%;
             padding: 5px;
-            width: 300px;
             font-size: 16px;
         }
-        
+
         .search-button {
-            padding: 5px 10px;
-            font-size: 16px;
+            padding: 6px 12px;
             background-color: #4CAF50;
-            color: white;
+            color: #fff;
+            font-size: 16px;
             border: none;
             cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #45a049;
+        }
+
+        #bookList {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .book {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .book img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .book-title {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .book-author {
+            margin-top: 5px;
+            color: #888;
+        }
+
+        .book-details a {
+            display: block;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .book-details a:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+        }
+
+        .heart {
+            color: red;
         }
     </style>
 </head>
@@ -76,6 +110,11 @@
         
         <div id="bookList">
             <!-- Book items will be dynamically added here -->
+        </div>
+
+        <div class="footer">
+            A Divinemonk creation<br>
+            Made with <span class="heart">&#10084;</span>
         </div>
     </div>
 
