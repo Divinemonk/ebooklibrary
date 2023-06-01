@@ -1,0 +1,281 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.left {
+    width: 15%;
+    padding: 20px;
+}
+
+.left-panel {
+    width: 320px;
+    padding: 20px;
+}
+
+    .logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.links {
+    margin-top: 30px;
+}
+
+.links a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.links img {
+    width: 30px;
+    height: 30px;
+}
+
+.ad-column {
+    margin-bottom: 20px;
+}
+
+.quote {
+    margin-top: 40px;
+}
+
+.quote blockquote {
+    font-size: 18px;
+    font-style: italic;
+}
+
+.quote cite {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.center {
+    width: 60%;
+}
+
+.right {
+    width: 25%;
+    position: relative;
+}
+
+.side-panel {
+    position: sticky; /* Make the side panel sticky */
+    top: 20px; /* Adjust the top position as needed */
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.pagination {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.pagination::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 6px 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #45a049;
+}
+
+#bookList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book {
+    width: 200px;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.book img {
+    padding-top: 5px;
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.book-title {
+    margin-top: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.book-author {
+    margin-top: 5px;
+    color: #888;
+}
+
+.book-details a {
+    display: block;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.book-details a:hover {
+    background-color: #45a049;
+}
+
+.container {
+    position: relative; /* Add relative positioning to container */
+}
+
+.side-panel {
+    position: fixed; /* Make the side panel fixed */
+    top: 0;
+    right: 0;
+    width: 200px; /* Adjust the width as needed */
+    height: 100%; /* Make the side panel cover the entire height */
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tag-container {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.tag {
+    display: block; /* Display tags as block elements */
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    background-color: #f2f2f2;
+    color: #888;
+    cursor: pointer;
+    height: 100%; /* Set a fixed height for the tags column */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.tag:hover,
+.tag.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #888;
+    /* background-color: #333333;
+    color: white; */
+}
+
+.heart {
+    color: red;
+}
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .book {
+        width: 45%;
+        height: auto;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+    
+    .book {
+        width: 90%;
+        height: auto;
+    }
+    
+    .search-input {
+        width: 100%;
+        max-width: 300px;
+    }
+}

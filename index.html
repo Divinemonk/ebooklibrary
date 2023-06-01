@@ -1,592 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>eBook Library</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <head>
+        <title>eBook Library</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K9XMQBLM0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5K9XMQBLM0');
-    </script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5K9XMQBLM0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5K9XMQBLM0');
+        </script>
 
-    <style>
-        /* Global styles */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-        }
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script> 
 
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .left {
-            width: 15%;
-            padding: 20px;
-        }
-
-        .left-panel {
-            width: 320px;
-            padding: 20px;
-        }
-
-            .logo img {
-            width: 80px;
-            height: 80px;
-        }
-
-        .links {
-            margin-top: 30px;
-        }
-
-        .links a {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .links img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .ad-column {
-            margin-bottom: 20px;
-        }
-
-        .quote {
-            margin-top: 40px;
-        }
-
-        .quote blockquote {
-            font-size: 18px;
-            font-style: italic;
-        }
-
-        .quote cite {
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-        }
-
-        .center {
-            width: 60%;
-        }
-
-        .right {
-            width: 25%;
-            position: relative;
-        }
-
-        .side-panel {
-            position: sticky; /* Make the side panel sticky */
-            top: 20px; /* Adjust the top position as needed */
-            background-color: #f2f2f2;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 48px;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .search-container {
-            background-color: #f2f2f2;
-            padding: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .search-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: -1;
-        }
-
-        .pagination {
-            background-color: #f2f2f2;
-            padding: 10px;
-            margin-top: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .pagination::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.1);
-            z-index: -1;
-        }
-
-        .search-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 5px;
-            font-size: 16px;
-        }
-
-        .search-button {
-            padding: 6px 12px;
-            background-color: #4CAF50;
-            color: #fff;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .search-button:hover {
-            background-color: #45a049;
-        }
-
-        #bookList {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .book {
-            width: 200px;
-            height: 400px;
-            margin: 10px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            text-align: center;
-        }
-
-        .book img {
-            padding-top: 5px;
-            max-width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .book-title {
-            margin-top: 10px;
-            font-size: 20px;
-            line-height: 24px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-        }
-
-        .book-author {
-            margin-top: 5px;
-            color: #888;
-        }
-
-        .book-details a {
-            display: block;
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            padding: 5px;
-            border-radius: 3px;
-        }
-
-        .book-details a:hover {
-            background-color: #45a049;
-        }
-
-        .container {
-            position: relative; /* Add relative positioning to container */
-        }
-
-        .side-panel {
-            position: fixed; /* Make the side panel fixed */
-            top: 0;
-            right: 0;
-            width: 200px; /* Adjust the width as needed */
-            height: 100%; /* Make the side panel cover the entire height */
-            background-color: #f2f2f2;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .tag-container {
-            text-align: left;
-            margin-top: 10px;
-        }
-
-        .tag {
-            display: block; /* Display tags as block elements */
-            margin-bottom: 10px;
-            padding: 5px 10px;
-            background-color: #f2f2f2;
-            color: #888;
-            cursor: pointer;
-            height: 100%; /* Set a fixed height for the tags column */
-            overflow-y: auto; /* Enable vertical scrolling */
-        }
-
-        .tag:hover,
-        .tag.active {
-            background-color: #4CAF50;
-            color: #fff;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #888;
-            /* background-color: #333333;
-            color: white; */
-        }
-
-        .heart {
-            color: red;
-        }
-
-        /* Media Queries */
-
-        /* Tablets */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .book {
-                width: 45%;
-                height: auto;
-            }
-        }
-
-        /* Mobile Phones */
-        @media (max-width: 480px) {
-            .container {
-                padding: 5px;
-            }
-            
-            .book {
-                width: 90%;
-                height: auto;
-            }
-            
-            .search-input {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="left-panel">
-            <div class="logo">
-                 <img src="favicon.ico" alt="Logo">
+    </head>
+    <body>
+        <div class="container">
+            <div class="left-panel">
+                <div class="logo">
+                    <img src="favicon.ico" alt="Logo">
+                </div>
+                <div class="links">
+                    <a href="https://github.com"><img src="github-logo.png" alt="GitHub"></a>
+                    <a href="https://instagram.com"><img src="instagram-logo.png" alt="Instagram"></a>
+                    <a href="https://youtube.com"><img src="youtube-logo.png" alt="YouTube"></a>
+                </div>
+                <div class="ad-column">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Ad Unit Code -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="YOUR-ADSENSE-CLIENT-ID"
+                        data-ad-slot="YOUR-ADSENSE-AD-SLOT"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <div class="quote">
+                    
+                    <blockquote id="random-quote">
+                        <!-- Quote will be dynamically added here -->
+                    </blockquote>
+                </div>
             </div>
-            <div class="links">
-                <a href="https://github.com"><img src="github-logo.png" alt="GitHub"></a>
-                <a href="https://instagram.com"><img src="instagram-logo.png" alt="Instagram"></a>
-                <a href="https://youtube.com"><img src="youtube-logo.png" alt="YouTube"></a>
-            </div>
-            <div class="ad-column">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Ad Unit Code -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="YOUR-ADSENSE-CLIENT-ID"
-                    data-ad-slot="YOUR-ADSENSE-AD-SLOT"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <div class="quote">
+            
+
+            <div class="column center">
+                <h1>eBook Library</h1>
                 
-                <blockquote id="random-quote">
-                    <!-- Quote will be dynamically added here -->
-                </blockquote>
-            </div>
-        </div>
-          
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
+                    <button class="search-button" onclick="searchBooks()">Search</button>
+                </div>
 
-        <div class="column center">
-            <h1>eBook Library</h1>
-            
-            <div class="search-container">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
-                <button class="search-button" onclick="searchBooks()">Search</button>
-            </div>
+                <div id="bookList">
+                    <!-- Book items will be dynamically added here -->
+                </div>
 
-            <div id="bookList">
-                <!-- Book items will be dynamically added here -->
-            </div>
+                <div id="pagination" class="pagination">
+                    <!-- Pagination will be dynamically added here -->
+                </div>
 
-            <div id="pagination" class="pagination">
-                <!-- Pagination will be dynamically added here -->
+                <div class="footer">
+                    <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
+                    <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
+                </div>
             </div>
 
-            <div class="footer">
-                <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
-                <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
-            </div>
-        </div>
 
-
-        <div class="column right">
-            <div class="side-panel">
-                <span class="tag-label">Tags:</span>
-                <div class="tag-container">
-                    <div class="tag active" onclick="filterByTag(this)">All</div>
-                    <!-- Other tags will be dynamically added here -->
+            <div class="column right">
+                <div class="side-panel">
+                    <span class="tag-label">Tags:</span>
+                    <div class="tag-container">
+                        <div class="tag active" onclick="filterByTag(this)">All</div>
+                        <!-- Other tags will be dynamically added here -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script>      
-        // Create an XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
-
-        // Define the path to the JSON file
-        var jsonFile = 'database.json';
-
-        // Declare global variables
-        var books = []; // Array to store all books
-        var currentPage = 1; // Current page number
-        var booksPerPage = 6; // Number of books to display per page
-        var tagList = []; // Array to store unique tags
-
-        // Send a GET request to fetch the JSON data
-        xhr.open('GET', jsonFile, true);
-        xhr.onload = function () {
-        if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            books = data.books; // Assign the fetched book data to the books variable
-
-            // Extract tags from the books data
-            extractTags();
-
-            // Display books and render pagination
-            displayBooks(currentPage, books);
-            handleTagClick('All');
-            renderPagination();
-            renderTags();
-        } else {
-            console.log('Error fetching book data. Status code:', xhr.status);
-        }
-        };
-        xhr.onerror = function () {
-        console.log('Error fetching book data. Network error.');
-        };
-        xhr.send();
-
-
-        // Function to extract unique tags from the books data
-        function extractTags() {
-            var allTags = ['All']; // Include 'All' tag to show all books initially
-
-            books.forEach(function (book) {
-                book.tags.forEach(function (tag) {
-                    if (!allTags.includes(tag)) {
-                        allTags.push(tag);
-                    }
-                });
-            });
-
-            tagList = allTags;
-            renderTags(); // Call the renderTags function to display the tags
-        }
-
-        // Function to render the tags
-        function renderTags() {
-            var tagContainer = document.querySelector('.tag-container');
-            tagContainer.innerHTML = ''; // Clear the existing tags
-
-            tagList.forEach(function (tag) {
-                var tagElement = document.createElement('div');
-                tagElement.innerText = tag;
-                tagElement.className = 'tag';
-                tagElement.addEventListener('click', function () {
-                    handleTagClick(tag);
-                });
-
-                tagContainer.appendChild(tagElement);
-            });
-        }
-
-        // Function to handle tag click event
-        function handleTagClick(tag) {
-            // Toggle active class on the clicked tag
-            var clickedTag = document.querySelector('.tag.active');
-            if (clickedTag) {
-                clickedTag.classList.remove('active');
-            }
-
-            var tagElements = document.getElementsByClassName('tag');
-            for (var i = 0; i < tagElements.length; i++) {
-                if (tagElements[i].innerText === tag) {
-                tagElements[i].classList.add('active');
-                break;
-                }
-            }
-
-            // Filter books based on the selected tag
-            var filteredBooks = [];
-            if (tag !== 'All') {
-                filteredBooks = books.filter(function (book) {
-                return book.tags.includes(tag);
-                });
-            } else {
-                filteredBooks = books;
-            }
-
-            // Display the filtered books
-            displayBooks(currentPage, filteredBooks);
-        }
-
-
-        // Display books based on the current page and filtered book array
-        function displayBooks(page, booksArray) {
-            var bookListContainer = document.getElementById('bookList');
-            bookListContainer.innerHTML = '';
-
-            var startIndex = (page - 1) * booksPerPage;
-            var endIndex = Math.min(startIndex + booksPerPage, booksArray.length);
-
-            for (var i = startIndex; i < endIndex; i++) {
-                var book = booksArray[i];
-
-                var bookItem = document.createElement('div');
-                bookItem.className = 'book';
-
-                var bookCover = document.createElement('img');
-                bookCover.src = book.cover;
-
-                var bookDetails = document.createElement('div');
-                bookDetails.className = 'book-details';
-
-                var bookTitle = document.createElement('h2');
-                bookTitle.className = 'book-title';
-                bookTitle.innerText = book.title;
-
-                var bookAuthor = document.createElement('p');
-                bookAuthor.className = 'book-author';
-                bookAuthor.innerText = 'By ' + book.author;
-
-                var downloadButton = document.createElement('a');
-                downloadButton.href = book.downloadLink;
-                downloadButton.innerText = 'Download';
-                downloadButton.target = '_blank';
-
-                bookDetails.appendChild(bookTitle);
-                bookDetails.appendChild(bookAuthor);
-                bookDetails.appendChild(downloadButton);
-
-                bookItem.appendChild(bookCover);
-                bookItem.appendChild(bookDetails);
-
-                bookListContainer.appendChild(bookItem);
-            }
-        }
-
-
-        // Render pagination
-        function renderPagination() {
-            var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-            var paginationContainer = document.getElementById('pagination');
-            paginationContainer.innerHTML = '';
-
-            for (var i = 1; i <= totalPages; i++) {
-                var pageLink = document.createElement('a');
-                pageLink.href = '#';
-                pageLink.innerText = i;
-                pageLink.className = i === currentPage ? 'active' : '';
-
-                pageLink.addEventListener('click', function () {
-                    currentPage = parseInt(this.innerText);
-                    displayBooks(currentPage, filteredBooks);
-                    var activeLink = document.querySelector('.pagination a.active');
-                    activeLink.classList.remove('active');
-                    this.classList.add('active');
-                });
-
-                paginationContainer.appendChild(pageLink);
-            }
-        }
-
-
-        // Function to handle search input event
-        function handleSearchInput() {
-            var input = document.getElementById("searchInput").value.toLowerCase();
-            var selectedTag = document.querySelector('.tag.active').innerText;
-            var filteredBooks = [];
-
-            if (input !== "") {
-                // Filter books based on the selected tag
-                var tagFilteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
-                    return book.tags.includes(selectedTag);
-                }) : books;
-
-                // Filter books based on the input text
-                filteredBooks = tagFilteredBooks.filter(function (book) {
-                    return book.title.toLowerCase().includes(input);
-                });
-            } else {
-                // If the input is empty, display all books based on the selected tag
-                filteredBooks = (selectedTag !== 'All') ? books.filter(function (book) {
-                    return book.tags.includes(selectedTag);
-                }) : books;
-            }
-
-            // Display the filtered books
-            displayBooks(currentPage, filteredBooks);
-            renderPagination();
-        }
-
-        function getRandomQuote() {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://api.quotable.io/quotes/random", true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                var quote = JSON.parse(xhr.responseText);
-                var quoteContent = quote.content;
-                var quoteAuthor = quote.author;
-                document.getElementById("random-quote").textContent = quoteContent;
-                document.getElementById("author").textContent = "- " + quoteAuthor;
-                }
-            };
-            xhr.send();
-        }
-
-        // Call the function to show a random quote initially
-        getRandomQuote();
-
-
-        // Attach the event listener to the search input field
-        var searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener('input', handleSearchInput);
-
-    </script>
-</body>
+        
+    </body>
 </html>
