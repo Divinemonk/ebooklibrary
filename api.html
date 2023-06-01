@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API</title>
+</head>
+<body>
+  <script>
+    // Function to search for a book by title
+    function searchByTitle(title) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'database.json', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          const results = data.filter(book => book.title.toLowerCase() === title.toLowerCase());
+          console.log(results);
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+          console.error('Failed to read database:', xhr.status);
+        }
+      };
+      xhr.send();
+    }
+
+    // Function to search for a book by ID
+    function searchById(id) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'database.json', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          const book = data.find(book => book.id === parseInt(id));
+          if (book) {
+            console.log(book);
+          } else {
+            console.log('Book not found');
+          }
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+          console.error('Failed to read database:', xhr.status);
+        }
+      };
+      xhr.send();
+    }
+
+    // Function to load the database in chunks
+    function loadDatabaseChunk(startIndex, chunkSize, callback) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'database.json', true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          const chunk = data.slice(startIndex, startIndex + chunkSize);
+          callback(chunk);
+        } else if (xhr.readyState === 4 && xhr.status !== 200) {
+          console.error('Failed to read database:', xhr.status);
+        }
+      };
+      xhr.send();
+    }
+
+    // Parse the query parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const bookParam = urlParams.get('book');
+    const idParam = urlParams.get('id');
+
+    console.log(bookParam);
+    console.log(idParam);
+
+    // Perform the search based on the query parameters
+    if (bookParam) {
+      searchByTitle(bookParam);
+    } else if (idParam) {
+      searchById(idParam);
+    } else {
+      console.error('Invalid query parameters');
+    }
+
+    // Example usage of loading the database in chunks
+    const startIndex = 0; // Start index of the chunk
+    const chunkSize = 100; // Number of records to load per chunk
+
+    loadDatabaseChunk(startIndex, chunkSize, function(chunk) {
+      console.log(chunk);
+
+      // Perform additional processing or operations on the loaded chunk
+    });
+  </script>
+</body>
+</html>
