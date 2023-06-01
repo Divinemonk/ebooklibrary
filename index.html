@@ -74,19 +74,7 @@
         </div>
     </div>
 
-    <script>
-        // Fetch book data from JSON file
-//         fetch('database.json')
-//             .then(response => response.json())
-//             .then(data => {
-//                 // Pass the fetched data to the displayBooks function
-//                 displayBooks(data.books);
-//                 console.log(data);
-//             })
-//             .catch(error => {
-//                 console.log('Error fetching book data:', error);
-//             });
-        
+    <script>      
         // Create an XMLHttpRequest object
         var xhr = new XMLHttpRequest();
 
@@ -98,7 +86,7 @@
         xhr.onload = function() {
             if (xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
-                console.log(data);
+                var books = data.books; // Store the fetched book data in the books variable
                 displayBooks(data.books);
             } else {
                 console.log('Error fetching book data. Status code:', xhr.status);
