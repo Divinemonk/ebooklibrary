@@ -156,20 +156,22 @@ function renderPagination() {
     paginationContainer.innerHTML = '';
 
     for (var i = 1; i <= totalPages; i++) {
-        var pageLink = document.createElement('a');
-        pageLink.href = '#';
-        pageLink.innerText = i;
-        pageLink.className = i === currentPage ? 'active' : '';
+        var paginationItem = document.createElement('div');
+        paginationItem.className = 'pagination-item';
+        paginationItem.innerText = i;
 
-        pageLink.addEventListener('click', function () {
-            currentPage = parseInt(this.innerText);
-            displayBooks(currentPage, filteredBooks);
-            var activeLink = document.querySelector('.pagination a.active');
-            activeLink.classList.remove('active');
-            this.classList.add('active');
+        if (i === currentPage) {
+        paginationItem.classList.add('active');
+        }
+
+        paginationItem.addEventListener('click', function () {
+        var clickedPage = parseInt(this.innerText);
+        currentPage = clickedPage;
+        displayBooks(clickedPage, filteredBooks);
+        renderPagination();
         });
 
-        paginationContainer.appendChild(pageLink);
+        paginationContainer.appendChild(paginationItem);
     }
 }
 
@@ -202,7 +204,6 @@ function handleSearchInput() {
     renderPagination();
 }
 
-
 function getRandomQuote() {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "https://api.quotable.io/quotes/random", true);
@@ -214,7 +215,6 @@ function getRandomQuote() {
     }
     xhr.send();
 }
-
 
 // Call the function to show a random quote initially
 getRandomQuote();
