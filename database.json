@@ -39,6 +39,14 @@
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/f7c667ba-aa25-4e47-9652-3ade6903d2f0",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheArtOfHumanHacking/Social-Engineering-The-Art-of-Human-Hacking.pdf",
             "tags": ["social-engineering"]
+        },
+        {
+            "id": 6,
+            "title": "The GIANT Black Book of Computer Viruses",
+            "author": "Mark Ludwig",
+            "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/d0718ee7-28dc-412c-8e41-734f492955b4",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheGiantBlackBookOfComputerViruses/The-Giant-Black-Book-of-Computer-Viruses.pdf",
+            "tags": ["viruses", "computers"]
         }
     ]
 }
