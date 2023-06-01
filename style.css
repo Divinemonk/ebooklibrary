@@ -13,6 +13,10 @@ body {
     align-items: flex-start;
 }
 
+
+
+/* ----------------- Left ------------------ */
+
 .left {
     width: 15%;
     padding: 20px;
@@ -62,21 +66,12 @@ body {
     display: block;
 } */
 
+
+
+/* ----------------- Center ------------------ */
+
 .center {
     width: 60%;
-}
-
-.right {
-    width: 25%;
-    position: relative;
-}
-
-.side-panel {
-    position: sticky; /* Make the side panel sticky */
-    top: 20px; /* Adjust the top position as needed */
-    background-color: #f2f2f2;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 h1 {
@@ -200,9 +195,9 @@ h1 {
     background-color: #45a049;
 }
 
-.container {
-    position: relative; /* Add relative positioning to container */
-}
+/* .container {
+    position: relative; /* Add relative positioning to container 
+} */
 
 .side-panel {
     position: fixed; /* Make the side panel fixed */
@@ -239,7 +234,7 @@ h1 {
 
 .footer {
     text-align: center;
-    margin-top: 30px;
+    margin: 30px;
     color: #888;
     /* background-color: #333333;
     color: white; */
@@ -249,6 +244,21 @@ h1 {
     color: red;
 }
 
+
+/* ----------------- Right ------------------ */
+
+.right {
+    width: 25%;
+    position: relative;
+}
+
+.side-panel {
+    position: sticky; /* Make the side panel sticky */
+    top: 20px; /* Adjust the top position as needed */
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
 
 /* -------------- Media Queries ------------------ */
