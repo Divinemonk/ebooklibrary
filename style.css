@@ -8,8 +8,6 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between;
-    align-items: flex-start; */
 }
 
 
@@ -23,8 +21,12 @@ body {
 }
 
 .left-panel {
-    width: 10%;
-    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .logo img {
@@ -71,7 +73,7 @@ body {
 /* ----------------- Center ------------------ */
 
 .center {
-    width: 70%;
+    width: 75%;
     background-color: #fff;
 
 }
@@ -197,7 +199,6 @@ h1 {
     background-color: #45a049;
 }
 
-
 .footer {
     text-align: center;
     margin: 30px;
@@ -216,8 +217,14 @@ h1 {
     position: sticky;
 }
 
-.side-panel {
-    width: 10%;
+.right-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1;
+    overflow-y: auto;
     padding: 20px;
 }
 
