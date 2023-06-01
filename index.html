@@ -80,6 +80,8 @@
         #bookList {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center; /* Added */
+            align-items: center; /* Added */
         }
 
         .book {
@@ -101,6 +103,15 @@
 
         .book-title {
             margin-top: 10px;
+            font-size: 20px;
+            line-height: 24px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .small-font {
             font-size: 16px;
         }
 
@@ -121,10 +132,6 @@
 
         .book-details a:hover {
             background-color: #45a049;
-        }
-
-        .book.large-height {
-            height: 400px;
         }
 
         .footer {
@@ -188,50 +195,6 @@
         };
         xhr.send();
 
-        // Display books based on the current page
-        function displayBooks(page) {
-            var bookListContainer = document.getElementById('bookList');
-            bookListContainer.innerHTML = '';
-
-            var startIndex = (page - 1) * booksPerPage;
-            var endIndex = startIndex + booksPerPage;
-
-            for (var i = startIndex; i < endIndex && i < books.length; i++) {
-                var book = books[i];
-
-                var bookItem = document.createElement('div');
-                bookItem.className = 'book';
-
-                var bookCover = document.createElement('img');
-                bookCover.src = book.cover;
-
-                var bookDetails = document.createElement('div');
-                bookDetails.className = 'book-details';
-
-                var bookTitle = document.createElement('h2');
-                bookTitle.className = 'book-title';
-                bookTitle.innerText = book.title;
-
-                var bookAuthor = document.createElement('p');
-                bookAuthor.className = 'book-author';
-                bookAuthor.innerText = 'By ' + book.author;
-
-                var downloadButton = document.createElement('a');
-                downloadButton.href = book.downloadLink;
-                downloadButton.innerText = 'Download';
-                downloadButton.target = '_blank';
-
-                bookDetails.appendChild(bookTitle);
-                bookDetails.appendChild(bookAuthor);
-                bookDetails.appendChild(downloadButton);
-
-                bookItem.appendChild(bookCover);
-                bookItem.appendChild(bookDetails);
-
-                bookListContainer.appendChild(bookItem);
-            }
-        }
-
 
         // Display books based on the current page
         function displayBooks(page) {
@@ -257,9 +220,9 @@
                 bookTitle.className = 'book-title';
                 bookTitle.innerText = book.title;
 
-                // Adjust box height based on title length
-                if (book.title.length > 20) {
-                    bookItem.classList.add('large-height');
+                // Adjust font size if the title exceeds two lines
+                if (hasLongTitle(book.title)) {
+                    bookTitle.classList.add('small-font');
                 }
 
                 var bookAuthor = document.createElement('p');
@@ -281,6 +244,25 @@
                 bookListContainer.appendChild(bookItem);
             }
         }
+
+
+        // Check if the title exceeds two lines
+        function hasLongTitle(title) {
+            var titleElement = document.createElement('h2');
+            titleElement.style.visibility = 'hidden';
+            titleElement.style.position = 'absolute';
+            titleElement.style.width = '200px';
+            titleElement.style.height = 'auto';
+            titleElement.style.whiteSpace = 'nowrap';
+            titleElement.style.overflow = 'hidden';
+            titleElement.style.fontSize = '16px';
+            titleElement.innerText = title;
+            document.body.appendChild(titleElement);
+            var isLong = titleElement.scrollWidth > titleElement.clientWidth;
+            document.body.removeChild(titleElement);
+            return isLong;
+        }
+
 
         // Render pagination
         function renderPagination() {
@@ -306,6 +288,7 @@
                 paginationContainer.appendChild(pageLink);
             }
         }
+
 
         // Search books
         function searchBooks() {

@@ -4,31 +4,36 @@
             "title": "The Hacker Playbook 1",
             "author": "Peter Kim",
             "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/02d5d7ae-ee8b-4d89-8831-2215e83a365d",
-            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook1/The-Hacker-Playbook-1.pdf"
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook1/The-Hacker-Playbook-1.pdf",
+            "tag": "hacking"
         },
         {
             "title": "The Hacker Playbook 2",
             "author": "Peter Kim",
             "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/e27c94fa-f74c-47b7-9438-44b4f82b461c",
-            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook2/The-Hacker-Playbook-2.pdf"
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook2/The-Hacker-Playbook-2.pdf",
+            "tag": "hacking"
         },
         {
             "title": "The Hacker Playbook 3",
             "author": "Peter Kim",
             "cover": "https://github.com/Divinemonk/ebookstore/assets/82360546/c53e8cfc-dc46-4d0c-94b9-1cb5e5536841",
-            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook3/The-Hacker-Playbook-3.pdf"
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/thehackerplaybook3/The-Hacker-Playbook-3.pdf",
+            "tag": "hacking"
         },
         {
             "title": "Social Engineering: The Science of Human Hacking",
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/2e2091e6-a460-4890-b2aa-17ea1f234829",
-            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheScienceOfHumanHacking/Social-Engineering-The-Science-of-Human-Hacking.pdf"
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheScienceOfHumanHacking/Social-Engineering-The-Science-of-Human-Hacking.pdf",
+            "tag": "social-engineering"
         },
         {
             "title": "Social Engineering: The Art of Human Hacking",
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/f7c667ba-aa25-4e47-9652-3ade6903d2f0",
-            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheArtOfHumanHacking/Social-Engineering-The-Art-of-Human-Hacking.pdf"
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheArtOfHumanHacking/Social-Engineering-The-Art-of-Human-Hacking.pdf",
+            "tag": "social-engineering"
         }
     ]
 }
