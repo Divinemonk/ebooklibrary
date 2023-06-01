@@ -47,11 +47,24 @@ body {
 .social-media a {
     display: block;
     margin-bottom: 10px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    border-radius: 3px;
 }
 
-.social-media img {
-    width: 30px;
-    height: 30px;
+.social-media a:hover {
+    background-color: #4f7551;
+}
+
+.social-media h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #444444;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
 }
 
 .ad-column {
@@ -59,25 +72,31 @@ body {
 }
 
 .quote {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
+    margin-top: 25px;
     text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f2f2f2;
 }
 
 .quote-label {
-    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
     color: #444444;
     margin-bottom: 10px;
     padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
 }
 
 .random-quote {
+    margin: 0;
+    padding: 0;
     font-size: 16px;
-    font-style: italic;
-    color: #333;
-    border-top: 1px solid #ccc;
+    color: #444444;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
 }
 
 
