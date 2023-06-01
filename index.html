@@ -29,13 +29,11 @@
 
         .left {
             width: 15%;
-            position: relative;
             padding: 20px;
         }
 
         .left-panel {
             width: 320px;
-            background-color: #f9f9f9;
             padding: 20px;
         }
 
@@ -256,7 +254,9 @@
         .footer {
             text-align: center;
             margin-top: 30px;
-            color: #888;
+            /* color: #888; */
+            background-color: #333333;
+            color: white;
         }
 
         .heart {
@@ -561,6 +561,31 @@
             displayBooks(currentPage, filteredBooks);
             renderPagination();
         }
+
+        function showRandomQuote() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.quotable.io/quotes/random", true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                var randomQuote = data.content;
+
+                // Display the quote
+                var quoteElement = document.getElementById("random-quote");
+                quoteElement.textContent = randomQuote;
+                } else {
+                console.log("Error fetching random quote. Status:", xhr.status);
+                }
+            };
+            xhr.onerror = function() {
+                console.log("Error fetching random quote. Network error.");
+            };
+            xhr.send();
+        }
+
+        // Call the function to show a random quote initially
+        showRandomQuote();
+
 
         // Attach the event listener to the search input field
         var searchInput = document.getElementById("searchInput");
