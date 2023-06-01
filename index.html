@@ -173,7 +173,21 @@
             <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
             <button class="search-button" onclick="searchBooks()">Search</button>
         </div>
-        
+
+        <div class="filter-container">
+            <span class="filter-label">Filter by:</span>
+            <div class="filter-option active" data-filter="tag" onclick="toggleFilterOption(this)">Tag</div>
+            <div class="filter-option" data-filter="title" onclick="toggleFilterOption(this)">Title</div>
+        </div>
+
+        <div class="tag-container">
+            <span class="tag-label">Tags:</span>
+            <div class="tag active" onclick="filterByTag(this)">All</div>
+            <div class="tag" onclick="filterByTag(this)">Adventure</div>
+            <div class="tag" onclick="filterByTag(this)">Fiction</div>
+            <div class="tag" onclick="filterByTag(this)">Mystery</div>
+        </div>
+
         <div id="bookList">
             <!-- Book items will be dynamically added here -->
         </div>
