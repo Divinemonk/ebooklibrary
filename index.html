@@ -53,7 +53,7 @@
 
         .book {
             width: 200px;
-            height: 400px;
+            height: 380px;
             margin: 10px;
             padding: 10px;
             background-color: #f9f9f9;
@@ -191,11 +191,19 @@
 
         // Search books
         function searchBooks() {
-            console.log("book searched")
             var input = document.getElementById("searchInput").value.toLowerCase();
-            var filteredBooks = books.filter(function(book) {
-                return book.title.toLowerCase().includes(input);
-            });
+            var filteredBooks = [];
+
+            if (input !== "") {
+                // Loop through each book and check if the title contains the input text
+                books.forEach(function(book) {
+                    if (book.title.toLowerCase().includes(input)) {
+                        filteredBooks.push(book);
+                    }
+                });
+            } else {
+                filteredBooks = books; // Keep the original book list if the input is empty
+            }
 
             displayBooks(filteredBooks);
         }
