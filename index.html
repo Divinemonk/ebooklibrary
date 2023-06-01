@@ -33,17 +33,14 @@
             align-items: flex-start;
         }
 
-        /* .column {
-            flex: 1 1 33.33%; 
-            box-sizing: border-box;
-            padding: 20px;
-        } */
-
         .left {
-            /* flex: 0 0 25%; */
             width: 25%;
-            box-sizing: border-box;
+            position: fixed;
             padding: 20px;
+        }
+
+        .logo {
+            background-color: #f2f2f2; 
         }
 
         .logo img {
@@ -56,15 +53,16 @@
             margin-bottom: 10px;
             color: #000;
             text-decoration: none;
+            background-color: #e5e5e5;
         }
 
         .ad-panel {
             margin-top: 20px;
-            /* Add styles for the ad panel */
+            background-color: #d8d8d8;
         }
 
         .center {
-            flex: 2 1 66.66%;
+            /* flex: 2 1 66.66%; */
             width: 50%;
         }
 
@@ -91,6 +89,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relafixed;
         }
 
         .search-container {
@@ -98,7 +97,7 @@
             padding: 10px;
             margin-bottom: 20px;
             text-align: center;
-            position: relative;
+            position: fixed;
         }
 
         .search-container::before {
