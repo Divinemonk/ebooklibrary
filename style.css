@@ -19,11 +19,11 @@ body {
 .left {
     width: 15%;
     padding: 20px;
-    position: sticky; /* Make the side panel sticky */
+    position: sticky;
 }
 
 .left-panel {
-    width: 50%;
+    width: 10%;
     padding: 20px;
 }
 
@@ -71,7 +71,7 @@ body {
 /* ----------------- Center ------------------ */
 
 .center {
-    width: 60%;
+    width: 70%;
     background-color: #fff;
 
 }
@@ -212,12 +212,12 @@ h1 {
 /* ----------------- Right ------------------ */
 
 .right {
-    width: 25%;
+    width: 15%;
     position: sticky;
 }
 
 .side-panel {
-    width: 50%;
+    width: 10%;
     padding: 20px;
 }
 
