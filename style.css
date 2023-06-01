@@ -23,11 +23,11 @@ body {
 }
 
 .left-panel {
-    width: 50px;
+    width: 50%;
     padding: 20px;
 }
 
-    .logo img {
+.logo img {
     width: 80px;
     height: 80px;
 }
@@ -217,7 +217,7 @@ h1 {
 }
 
 .side-panel {
-    width: 100px;
+    width: 50%;
     padding: 20px;
 }
 
