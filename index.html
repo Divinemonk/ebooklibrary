@@ -80,8 +80,6 @@
         #bookList {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Added */
-            align-items: center; /* Added */
         }
 
         .book {
@@ -134,6 +132,28 @@
             background-color: #45a049;
         }
 
+        .tag-container {
+            margin-top: 30px;
+        }
+
+        .tag-container h3 {
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin-right: 5px;
+            background-color: #f2f2f2;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .tag.active {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
         .footer {
             text-align: center;
             margin-top: 30px;
@@ -160,6 +180,13 @@
 
         <div id="pagination" class="pagination"></div>
 
+        <div class="tag-container">
+            <h3>Tags</h3>
+            <div id="tagList">
+                <!-- Tags will be dynamically added here -->
+            </div>
+        </div>
+
         <div class="footer">
             <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
             <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
@@ -176,91 +203,136 @@
         // Declare global variables
         var books = []; // Array to store all books
         var currentPage = 1; // Current page number
-        var booksPerPage = 6; // Number of books to display per page
+        var booksPerPage = 8; // Number of books to display per page
+        var tagList = []; // Array to store unique tags
 
         // Send a GET request to fetch the JSON data
         xhr.open('GET', jsonFile, true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var data = JSON.parse(xhr.responseText);
-                books = data.books; // Assign the fetched book data to the books variable
-                displayBooks(currentPage);
-                renderPagination();
-            } else {
-                console.log('Error fetching book data. Status code:', xhr.status);
-            }
+        xhr.onload = function () {
+        if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            books = data.books; // Assign the fetched book data to the books variable
+
+            // Extract tags from the books data
+            extractTags();
+
+            // Display books and render pagination
+            displayBooks(currentPage);
+            renderPagination();
+            renderTags();
+        } else {
+            console.log('Error fetching book data. Status code:', xhr.status);
+        }
         };
-        xhr.onerror = function() {
-            console.log('Error fetching book data. Network error.');
+        xhr.onerror = function () {
+        console.log('Error fetching book data. Network error.');
         };
         xhr.send();
 
+        // Function to extract unique tags from the books data
+        function extractTags() {
+        var allTags = ['All']; // Include 'All' tag to show all books initially
 
-        // Display books based on the current page
-        function displayBooks(page) {
-            var bookListContainer = document.getElementById('bookList');
-            bookListContainer.innerHTML = '';
+        books.forEach(function (book) {
+            book.tags.forEach(function (tag) {
+            if (!allTags.includes(tag)) {
+                allTags.push(tag);
+            }
+            });
+        });
 
-            var startIndex = (page - 1) * booksPerPage;
-            var endIndex = startIndex + booksPerPage;
+        tagList = allTags;
+        }
 
-            for (var i = startIndex; i < endIndex && i < books.length; i++) {
-                var book = books[i];
+        // Function to render the tags
+        function renderTags() {
+        var tagListContainer = document.getElementById('tagList');
+        tagListContainer.innerHTML = '';
 
-                var bookItem = document.createElement('div');
-                bookItem.className = 'book';
+        tagList.forEach(function (tag) {
+            var tagElement = document.createElement('div');
+            tagElement.innerText = tag;
+            tagElement.className = 'tag';
+            tagElement.addEventListener('click', function () {
+            handleTagClick(tag);
+            });
 
-                var bookCover = document.createElement('img');
-                bookCover.src = book.cover;
+            tagListContainer.appendChild(tagElement);
+        });
+        }
 
-                var bookDetails = document.createElement('div');
-                bookDetails.className = 'book-details';
+        // Function to handle tag click event
+        function handleTagClick(tag) {
+        // Toggle active class on the clicked tag
+        var clickedTag = document.querySelector('.tag.active');
+        if (clickedTag) {
+            clickedTag.classList.remove('active');
+        }
 
-                var bookTitle = document.createElement('h2');
-                bookTitle.className = 'book-title';
-                bookTitle.innerText = book.title;
-
-                // Adjust font size if the title exceeds two lines
-                if (hasLongTitle(book.title)) {
-                    bookTitle.classList.add('small-font');
-                }
-
-                var bookAuthor = document.createElement('p');
-                bookAuthor.className = 'book-author';
-                bookAuthor.innerText = 'By ' + book.author;
-
-                var downloadButton = document.createElement('a');
-                downloadButton.href = book.downloadLink;
-                downloadButton.innerText = 'Download';
-                downloadButton.target = '_blank';
-
-                bookDetails.appendChild(bookTitle);
-                bookDetails.appendChild(bookAuthor);
-                bookDetails.appendChild(downloadButton);
-
-                bookItem.appendChild(bookCover);
-                bookItem.appendChild(bookDetails);
-
-                bookListContainer.appendChild(bookItem);
+        var tagElements = document.getElementsByClassName('tag');
+        for (var i = 0; i < tagElements.length; i++) {
+            if (tagElements[i].innerText === tag) {
+            tagElements[i].classList.add('active');
+            break;
             }
         }
 
+        // Filter books based on the selected tag
+        var filteredBooks = [];
+        if (tag !== 'All') {
+            filteredBooks = books.filter(function (book) {
+            return book.tags.includes(tag);
+            });
+        } else {
+            filteredBooks = books;
+        }
 
-        // Check if the title exceeds two lines
-        function hasLongTitle(title) {
-            var titleElement = document.createElement('h2');
-            titleElement.style.visibility = 'hidden';
-            titleElement.style.position = 'absolute';
-            titleElement.style.width = '200px';
-            titleElement.style.height = 'auto';
-            titleElement.style.whiteSpace = 'nowrap';
-            titleElement.style.overflow = 'hidden';
-            titleElement.style.fontSize = '16px';
-            titleElement.innerText = title;
-            document.body.appendChild(titleElement);
-            var isLong = titleElement.scrollWidth > titleElement.clientWidth;
-            document.body.removeChild(titleElement);
-            return isLong;
+        // Display the filtered books
+        displayBooks(currentPage, filteredBooks);
+        }
+
+        // Display books based on the current page and filtered book array
+        function displayBooks(page, booksArray) {
+        var bookListContainer = document.getElementById('bookList');
+        bookListContainer.innerHTML = '';
+
+        var startIndex = (page - 1) * booksPerPage;
+        var endIndex = startIndex + booksPerPage;
+
+        for (var i = startIndex; i < endIndex && i < booksArray.length; i++) {
+            var book = booksArray[i];
+
+            var bookItem = document.createElement('div');
+            bookItem.className = 'book';
+
+            var bookCover = document.createElement('img');
+            bookCover.src = book.cover;
+
+            var bookDetails = document.createElement('div');
+            bookDetails.className = 'book-details';
+
+            var bookTitle = document.createElement('h2');
+            bookTitle.className = 'book-title';
+            bookTitle.innerText = book.title;
+
+            var bookAuthor = document.createElement('p');
+            bookAuthor.className = 'book-author';
+            bookAuthor.innerText = 'By ' + book.author;
+
+            var downloadButton = document.createElement('a');
+            downloadButton.href = book.downloadLink;
+            downloadButton.innerText = 'Download';
+            downloadButton.target = '_blank';
+
+            bookDetails.appendChild(bookTitle);
+            bookDetails.appendChild(bookAuthor);
+            bookDetails.appendChild(downloadButton);
+
+            bookItem.appendChild(bookCover);
+            bookItem.appendChild(bookDetails);
+
+            bookListContainer.appendChild(bookItem);
+        }
         }
 
 
@@ -290,24 +362,40 @@
         }
 
 
-        // Search books
+        // Search books based on the input text and selected filter option
         function searchBooks() {
-            var input = document.getElementById("searchInput").value.toLowerCase();
-            var filteredBooks = [];
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        var selectedTag = document.querySelector('.tag.active').innerText;
+        var selectedFilter = document.querySelector('.filter.active').dataset.filter;
+        var filteredBooks = [];
 
-            if (input !== "") {
-                // Loop through each book and check if the title contains the input text
-                books.forEach(function(book) {
-                    if (book.title.toLowerCase().includes(input)) {
-                        filteredBooks.push(book);
-                    }
-                });
+        if (input !== "") {
+            // Filter books based on the selected tag
+            var tagFilteredBooks = (selectedTag !== 'All') ? books.filter(function(book) {
+            return book.tags.includes(selectedTag);
+            }) : books;
+
+            if (selectedFilter === 'tag') {
+            // If the tag filter is selected, display books based on the selected tag
+            filteredBooks = tagFilteredBooks;
             } else {
-                filteredBooks = books; // Keep the original book list if the input is empty
+            // If the title filter is selected, filter books based on the input text
+            tagFilteredBooks.forEach(function(book) {
+                if (book.title.toLowerCase().includes(input)) {
+                filteredBooks.push(book);
+                }
+            });
             }
-
-            displayBooks(filteredBooks);
+        } else {
+            // If the input is empty, display all books based on the selected tag
+            filteredBooks = (selectedTag !== 'All') ? books.filter(function(book) {
+            return book.tags.includes(selectedTag);
+            }) : books;
         }
+
+        displayBooks(currentPage, filteredBooks);
+        }
+
     </script>
 </body>
 </html>
