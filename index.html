@@ -132,26 +132,6 @@
             background-color: #45a049;
         }
 
-        .filter-container {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .filter-option {
-            display: inline-block;
-            margin-right: 10px;
-            padding: 5px 10px;
-            background-color: #f2f2f2;
-            color: #888;
-            cursor: pointer;
-        }
-
-        .filter-option:hover,
-        .filter-option.active {
-            background-color: #4CAF50;
-            color: #fff;
-        }
-
         .tag-container {
             text-align: center;
         }
@@ -191,10 +171,12 @@
             <button class="search-button" onclick="searchBooks()">Search</button>
         </div>
 
-        <div class="filter-container">
-            <span class="filter-label">Filter by:</span>
-            <div class="filter-option active" data-filter="tag" onclick="toggleFilterOption(this)">Tag</div>
-            <div class="filter-option" data-filter="title" onclick="toggleFilterOption(this)">Title</div>
+        <div id="bookList">
+            <!-- Book items will be dynamically added here -->
+        </div>
+
+        <div id="pagination" class="pagination">
+            <!-- Pagination will be dynamically added here -->
         </div>
 
         <div class="tag-container">
@@ -203,19 +185,6 @@
             <div class="tag" onclick="filterByTag(this)">Adventure</div>
             <div class="tag" onclick="filterByTag(this)">Fiction</div>
             <div class="tag" onclick="filterByTag(this)">Mystery</div>
-        </div>
-
-        <div id="bookList">
-            <!-- Book items will be dynamically added here -->
-        </div>
-
-        <div id="pagination" class="pagination"></div>
-
-        <div class="tag-container">
-            <h3>Tags</h3>
-            <div id="tagList">
-                <!-- Tags will be dynamically added here -->
-            </div>
         </div>
 
         <div class="footer">
