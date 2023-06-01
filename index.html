@@ -4,6 +4,8 @@
     <title>eBook Library</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
+        /* Default styles */
+
         body {
             margin: 0;
             padding: 0;
@@ -156,6 +158,29 @@
 
         .heart {
             color: red;
+        }
+
+        /* Responsive styles */
+        
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .book {
+                width: 100%;
+                height: auto;
+                margin: 10px 0;
+            }
+
+            .book img {
+                height: auto;
+            }
+
+            .search-input {
+                width: 100%;
+            }
         }
     </style>
 </head>
