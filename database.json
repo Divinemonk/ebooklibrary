@@ -30,7 +30,7 @@
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/2e2091e6-a460-4890-b2aa-17ea1f234829",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheScienceOfHumanHacking/Social-Engineering-The-Science-of-Human-Hacking.pdf",
-            "tags": ["social engineering"]
+            "tags": ["social-engineering"]
         },
         {
             "id": 5,
@@ -38,7 +38,7 @@
             "author": "Christopher Hadnagy",
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/f7c667ba-aa25-4e47-9652-3ade6903d2f0",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheArtOfHumanHacking/Social-Engineering-The-Art-of-Human-Hacking.pdf",
-            "tags": ["social engineering"]
+            "tags": ["social-engineering"]
         },
         {
             "id": 6,
@@ -47,6 +47,14 @@
             "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/d0718ee7-28dc-412c-8e41-734f492955b4",
             "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/TheGiantBlackBookOfComputerViruses/The-Giant-Black-Book-of-Computer-Viruses.pdf",
             "tags": ["viruses", "computers"]
+        },
+        {
+            "id": 7,
+            "title": "Psych Experiments",
+            "author": "Michael A. Britt",
+            "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/beefd17e-3358-48b4-b08e-5abd08b75522",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/PsychExperiments/Psych-Experiments.pdf",
+            "tags": ["psychology", "humans", "experiments"]
         }
     ]
 }

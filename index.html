@@ -4,8 +4,7 @@
     <title>eBook Library</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        /* Default styles */
-
+        /* Global styles */
         body {
             margin: 0;
             padding: 0;
@@ -13,7 +12,7 @@
         }
 
         .container {
-            width: 800px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -69,7 +68,8 @@
         }
 
         .search-input {
-            width: 70%;
+            width: 100%;
+            max-width: 400px;
             padding: 5px;
             font-size: 16px;
         }
@@ -90,6 +90,7 @@
         #bookList {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .book {
@@ -153,7 +154,7 @@
         }
 
         .tag:hover,
-            .tag.active {
+        .tag.active {
             background-color: #4CAF50;
             color: #fff;
         }
@@ -168,28 +169,37 @@
             color: red;
         }
 
-        /* Responsive styles */
+        /* Media Queries */
 
-        @media only screen and (max-width: 600px) {
+        /* Tablets */
+        @media (max-width: 768px) {
             .container {
-                width: 100%;
                 padding: 10px;
             }
-
+            
             .book {
-                width: 100%;
+                width: 45%;
                 height: auto;
-                margin: 10px 0;
-            }
-
-            .book img {
-                height: auto;
-            }
-
-            .search-input {
-                width: 100%;
             }
         }
+
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .book {
+                width: 90%;
+                height: auto;
+            }
+            
+            .search-input {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
     </style>
 </head>
 <body>
