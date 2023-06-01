@@ -12,8 +12,13 @@
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap;
+        }
+
+        .column {
+            flex: 1 1 33.33%; /* Divide the container into 3 equal columns */
+            box-sizing: border-box;
             padding: 20px;
         }
 
@@ -234,29 +239,36 @@
 </head>
 <body>
     <div class="container">
-        <h1>eBook Library</h1>
-        
-        <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
-            <button class="search-button" onclick="searchBooks()">Search</button>
+        <div class="column center">
+            <h1>eBook Library</h1>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for a book...">
+                <button class="search-button" onclick="searchBooks()">Search</button>
+            </div>
+
+            <div id="bookList">
+                <!-- Book items will be dynamically added here -->
+            </div>
+
+            <div id="pagination" class="pagination">
+                <!-- Pagination will be dynamically added here -->
+            </div>
+
+            <div class="footer">
+                <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
+                <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
+            </div>
         </div>
 
-        <div id="bookList">
-            <!-- Book items will be dynamically added here -->
-        </div>
-
-        <div id="pagination" class="pagination">
-            <!-- Pagination will be dynamically added here -->
-        </div>
-
-        <div class="tag-container">
-            <span class="tag-label">Tags:</span>
-            <div class="tag active" onclick="filterByTag(this)">All</div>
-        </div>
-
-        <div class="footer">
-            <a src="https://github.com/Divinemonk/ebooklibrary">Made with <span class="heart">&#10084;</span></a>
-            <a src="https://github.com/Divinemonk/">A Divinemonk creation!</a>
+        <div class="column right">
+            <div class="side-panel">
+                <div class="tag-container">
+                    <span class="tag-label">Tags:</span>
+                    <div class="tag active" onclick="filterByTag(this)">All</div>
+                    <!-- Other tags will be dynamically added here -->
+                </div>
+            </div>
         </div>
     </div>
 
