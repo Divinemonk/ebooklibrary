@@ -168,6 +168,7 @@
     }
 
     .pagination-item {
+        cursor: pointer;
         display: inline-block;
         margin: 0 5px;
     }
@@ -177,6 +178,13 @@
         color: #fff;
         font-weight: bold;
       }
+
+    .pagination-item.disabled {
+        opacity: 0.5; 
+        cursor: not-allowed; 
+        pointer-events: none;
+      }
+      
 
     .search-input {
         width: 100%;
