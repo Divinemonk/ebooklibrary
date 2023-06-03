@@ -304,42 +304,10 @@
 
 
 
-    /* -------------- Media Queries ------------------ */
-
-/* ----------------- Tablets --------------------- */
-@media (max-width: 1280px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .left {
-        width: 100%;
-        position: static;
-    }
-
-    .center {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .right {
-        width: 100%;
-        position: static;
-    }
-
-    .search-container,
-    .pagination,
-    .tag-container {
-        text-align: center;
-    }
-
-    .search-input {
-        margin-bottom: 10px;
-    }
-}
+/* -------------- Media Queries ------------------ */
 
 /* ----------------- Mobile Devices ----------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1284px) {
     h1 {
         font-size: 36px;
     }

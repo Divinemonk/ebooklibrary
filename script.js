@@ -111,8 +111,6 @@ function displayBooks(page, booksArray) {
     var startIndex = (page - 1) * booksPerPage;
     var endIndex = Math.min(startIndex + booksPerPage, booksArray.length);
 
-    console.log(startIndex, endIndex);
-
     for (var i = startIndex; i < endIndex; i++) {
         var book = booksArray[i];
 
