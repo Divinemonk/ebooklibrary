@@ -167,6 +167,17 @@
         z-index: -1;
     }
 
+    .pagination-item {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .pagination-item.active {
+        background-color: #4CAF50;
+        color: #fff;
+        font-weight: bold;
+      }
+
     .search-input {
         width: 100%;
         max-width: 400px;
@@ -296,7 +307,7 @@
     /* -------------- Media Queries ------------------ */
 
 /* ----------------- Tablets --------------------- */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .container {
         flex-direction: column;
     }
@@ -328,7 +339,7 @@
 }
 
 /* ----------------- Mobile Devices ----------------- */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     h1 {
         font-size: 36px;
     }

@@ -151,8 +151,38 @@ function displayBooks(page, booksArray) {
 
 
 // Render pagination
+// function renderPagination() {
+//     if (!(typeof filteredBooks !== "undefined")) {
+//         filteredBooks = books;
+//     }
+
+//     var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+//     var paginationContainer = document.getElementById('pagination');
+//     paginationContainer.innerHTML = '';
+
+//     for (var i = 1; i <= totalPages; i++) {
+//         var paginationItem = document.createElement('div');
+//         paginationItem.className = 'pagination-item';
+//         paginationItem.innerText = i;
+
+//         if (i === currentPage) {
+//         paginationItem.classList.add('active');
+//         }
+
+//         paginationItem.addEventListener('click', function () {
+//         var clickedPage = parseInt(this.innerText);
+//         currentPage = clickedPage;
+//         displayBooks(clickedPage, filteredBooks);
+//         renderPagination();
+//         });
+
+//         paginationContainer.appendChild(paginationItem);
+//     }
+// }
+
+
 function renderPagination() {
-    if (!(typeof filteredBooks !== "undefined")) {
+    if (filteredBooks === undefined) {
         filteredBooks = books;
     }
 
@@ -160,25 +190,64 @@ function renderPagination() {
     var paginationContainer = document.getElementById('pagination');
     paginationContainer.innerHTML = '';
 
+    if (totalPages > 1) {
+        var previousPageLink = document.createElement('div');
+        previousPageLink.className = 'pagination-item';
+        previousPageLink.innerHTML = '<<';
+        previousPageLink.addEventListener('click', function () {
+            if (currentPage > 1) {
+                currentPage -= 1;
+                displayBooks(currentPage, filteredBooks);
+                renderPagination();
+            }
+        });
+
+        if (currentPage === 1) {
+            previousPageLink.classList.add('disabled');
+        }
+
+        paginationContainer.appendChild(previousPageLink);
+    }
+
     for (var i = 1; i <= totalPages; i++) {
         var paginationItem = document.createElement('div');
         paginationItem.className = 'pagination-item';
         paginationItem.innerText = i;
 
         if (i === currentPage) {
-        paginationItem.classList.add('active');
+            paginationItem.classList.add('active');
         }
 
         paginationItem.addEventListener('click', function () {
-        var clickedPage = parseInt(this.innerText);
-        currentPage = clickedPage;
-        displayBooks(clickedPage, filteredBooks);
-        renderPagination();
+            var clickedPage = parseInt(this.innerText);
+            currentPage = clickedPage;
+            displayBooks(clickedPage, filteredBooks);
+            renderPagination();
         });
 
         paginationContainer.appendChild(paginationItem);
     }
+
+    if (totalPages > 1) {
+        var nextPageLink = document.createElement('div');
+        nextPageLink.className = 'pagination-item';
+        nextPageLink.innerHTML = '>>';
+        nextPageLink.addEventListener('click', function () {
+            if (currentPage < totalPages) {
+                currentPage += 1;
+                displayBooks(currentPage, filteredBooks);
+                renderPagination();
+            }
+        });
+
+        if (currentPage === totalPages) {
+            nextPageLink.classList.add('disabled');
+        }
+
+        paginationContainer.appendChild(nextPageLink);
+    }
 }
+
 
 
 // Function to handle search input event
