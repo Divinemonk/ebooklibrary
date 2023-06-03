@@ -314,132 +314,66 @@
 
 /* -------------- Media Queries ------------------ */
 
-/* -------------- Media Queries ------------------ */
+/* ----------------- Tablets --------------------- */
+@media (max-width: 1280px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        position: static;
+    }
+
+    .center {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .right {
+        width: 100%;
+        position: static;
+    }
+
+    .search-container,
+    .pagination,
+    .tag-container {
+        text-align: center;
+    }
+
+    .search-input {
+        margin-bottom: 10px;
+    }
+}
 
 /* ----------------- Mobile Devices ----------------- */
 @media (max-width: 1024px) {
     h1 {
-      font-size: 36px;
+        font-size: 36px;
     }
-  
+
     .book {
-      width: 100%;
-      height: auto;
+        width: 100%;
+        height: auto;
     }
-  
+
     .search-input {
-      max-width: 100%;
+        max-width: 100%;
     }
-  
+
     .left-panel,
     .right-panel {
-      position: static;
-      padding: 0;
+        position: static;
+        padding: 0;
     }
-  
+
     .tag-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-  
+
     .tag {
-      margin: 5px;
+        margin: 5px;
     }
-  }
-  
-  /* ----------------- Tablet Devices ----------------- */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 30px;
-    }
-  
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .left,
-    .right {
-      width: 100%;
-      margin-top: 20px;
-    }
-  
-    .left-panel,
-    .right-panel {
-      position: static;
-      padding: 0;
-    }
-  
-    .center {
-      width: 100%;
-      margin-left: 0;
-    }
-  
-    .search-container {
-      margin-bottom: 10px;
-    }
-  
-    .pagination,
-    .search-button {
-      margin-top: 10px;
-    }
-  
-    .footer {
-      margin: 20px;
-    }
-  }
-  
-  /* ----------------- Mobile Devices ----------------- */
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .left,
-    .right {
-      display: none;
-    }
-  
-    .center {
-      width: 100%;
-      margin-left: 0;
-    }
-  
-    .search-container {
-      margin-bottom: 10px;
-    }
-  
-    .search-input {
-      max-width: 100%;
-      padding: 8px;
-      font-size: 14px;
-    }
-  
-    .search-button {
-      padding: 8px 12px;
-      font-size: 14px;
-    }
-  
-    .pagination,
-    .search-button {
-      margin-top: 10px;
-    }
-  
-    .book {
-      width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-  
-    .footer {
-      margin: 10px;
-    }
-  }
-  
+}
