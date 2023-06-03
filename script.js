@@ -152,7 +152,7 @@ function displayBooks(page, booksArray) {
 
 // Render pagination
 function renderPagination() {
-    if (filteredBooks === undefined) {
+    if (!(typeof filteredBooks !== "undefined")) {
         filteredBooks = books;
     }
 
@@ -208,7 +208,6 @@ function handleSearchInput() {
     displayBooks(currentPage, filteredBooks);
     renderPagination();
 }
-
 
 function getRandomQuote() {
     var xhr = new XMLHttpRequest();
