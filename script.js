@@ -182,7 +182,7 @@ function displayBooks(page, booksArray) {
 
 
 function renderPagination() {
-    if (filteredBooks === undefined) {
+    if (!(typeof filteredBooks !== "undefined")) {
         filteredBooks = books;
     }
 
