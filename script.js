@@ -25,9 +25,10 @@ if (xhr.status === 200) {
 
     // Display books and render pagination
     displayBooks(currentPage, books);
-    handleTagClick('All');
-    renderPagination();
     renderTags();
+    renderPagination();
+    handleTagClick('All');
+    
 } else {
     console.log('Error fetching book data | Status code:', xhr.status);
 }
@@ -149,36 +150,6 @@ function displayBooks(page, booksArray) {
 
 
 // Render pagination
-// function renderPagination() {
-//     if (!(typeof filteredBooks !== "undefined")) {
-//         filteredBooks = books;
-//     }
-
-//     var totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-//     var paginationContainer = document.getElementById('pagination');
-//     paginationContainer.innerHTML = '';
-
-//     for (var i = 1; i <= totalPages; i++) {
-//         var paginationItem = document.createElement('div');
-//         paginationItem.className = 'pagination-item';
-//         paginationItem.innerText = i;
-
-//         if (i === currentPage) {
-//         paginationItem.classList.add('active');
-//         }
-
-//         paginationItem.addEventListener('click', function () {
-//         var clickedPage = parseInt(this.innerText);
-//         currentPage = clickedPage;
-//         displayBooks(clickedPage, filteredBooks);
-//         renderPagination();
-//         });
-
-//         paginationContainer.appendChild(paginationItem);
-//     }
-// }
-
-
 function renderPagination() {
     if (!(typeof filteredBooks !== "undefined")) {
         filteredBooks = books;
