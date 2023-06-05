@@ -26,7 +26,7 @@ if (xhr.status === 200) {
     // Display books and render pagination
     displayBooks(currentPage, books);
     renderTags();
-    // renderPagination();
+    renderPagination(filteredBooks);
     handleTagClick('All');
     
 } else {
@@ -100,6 +100,7 @@ function handleTagClick(tag) {
 
     // Display the filtered books
     displayBooks(currentPage, filteredBooks);
+    renderPagination(filteredBooks);
 }
 
 // Display books based on the current page and filtered book array
