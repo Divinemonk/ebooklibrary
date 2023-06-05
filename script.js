@@ -72,7 +72,6 @@ function renderTags() {
     });
 }
 
-
 // Function to handle tag click event
 function handleTagClick(tag) {
     // Toggle active class on the clicked tag
@@ -84,8 +83,8 @@ function handleTagClick(tag) {
     var tagElements = document.getElementsByClassName('tag');
     for (var i = 0; i < tagElements.length; i++) {
         if (tagElements[i].innerText === tag) {
-        tagElements[i].classList.add('active');
-        break;
+            tagElements[i].classList.add('active');
+            break;
         }
     }
 
@@ -93,17 +92,15 @@ function handleTagClick(tag) {
     var filteredBooks = [];
     if (tag !== 'All') {
         filteredBooks = books.filter(function (book) {
-        return book.tags.includes(tag);
+            return book.tags.includes(tag);
         });
     } else {
         filteredBooks = books;
     }
 
     // Display the filtered books
-    renderPagination();
-    // displayBooks(currentPage, filteredBooks);
+    displayBooks(currentPage, filteredBooks);
 }
-
 
 // Display books based on the current page and filtered book array
 function displayBooks(page, booksArray) {
@@ -150,9 +147,8 @@ function displayBooks(page, booksArray) {
     }
 }
 
-
 // Render pagination
-function renderPagination() {
+function renderPagination(filteredBooks) {
     if (!(typeof filteredBooks !== "undefined")) {
         filteredBooks = books;
     }
@@ -169,7 +165,7 @@ function renderPagination() {
             if (currentPage > 1) {
                 currentPage -= 1;
                 displayBooks(currentPage, filteredBooks);
-                renderPagination();
+                renderPagination(filteredBooks);
             }
         });
 
@@ -193,7 +189,7 @@ function renderPagination() {
             var clickedPage = parseInt(this.innerText);
             currentPage = clickedPage;
             displayBooks(clickedPage, filteredBooks);
-            renderPagination();
+            renderPagination(filteredBooks);
         });
 
         paginationContainer.appendChild(paginationItem);
@@ -207,7 +203,7 @@ function renderPagination() {
             if (currentPage < totalPages) {
                 currentPage += 1;
                 displayBooks(currentPage, filteredBooks);
-                renderPagination();
+                renderPagination(filteredBooks);
             }
         });
 
@@ -218,7 +214,6 @@ function renderPagination() {
         paginationContainer.appendChild(nextPageLink);
     }
 }
-
 
 // Function to handle search input event
 function handleSearchInput() {
@@ -245,7 +240,7 @@ function handleSearchInput() {
 
     // Display the filtered books
     displayBooks(currentPage, filteredBooks);
-    renderPagination();
+    renderPagination(filteredBooks);
 }
 
 function getRandomQuote() {
