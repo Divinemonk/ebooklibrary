@@ -127,6 +127,7 @@ function displayBooks(page, booksArray) {
         var bookTitle = document.createElement('h2');
         bookTitle.className = 'book-title';
         bookTitle.innerText = book.title;
+        bookTitle.setAttribute('alt', book.title);
 
         var bookAuthor = document.createElement('p');
         bookAuthor.className = 'book-author';
