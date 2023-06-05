@@ -167,6 +167,26 @@
                       "Reverse Engineering",
                       "Exploitation",
                       "Application Security"]
+        },
+        {
+            "id": 11,
+            "title": "Black Hat Python",
+            "author": "Justin Seitz",
+            "cover": "https://github.com/Divinemonk/ebooklibrary/assets/82360546/e5f4a00e-fd7e-42b1-b417-92e66886b664",
+            "downloadLink": "https://github.com/Divinemonk/ebooklibrary/releases/download/BlackHatPython/Black-Hat-Python.pdf",
+            "tags": ["Black Hat Python", 
+                     "Python", 
+                     "Ethical Hacking",
+                     "Cybersecurity", 
+                     "Python Programming", 
+                     "Offensive Security", 
+                     "Hacking",
+                     "Cybersecurity",
+                     "Network Scanning", 
+                     "Vulnerability Exploitation", 
+                     "Practical Examples", 
+                     "Security Research"]
+
         }         
     ]
 }
