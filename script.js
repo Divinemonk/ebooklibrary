@@ -26,7 +26,7 @@ if (xhr.status === 200) {
     // Display books and render pagination
     displayBooks(currentPage, books);
     renderTags();
-    renderPagination();
+    // renderPagination();
     handleTagClick('All');
     
 } else {
@@ -100,7 +100,8 @@ function handleTagClick(tag) {
     }
 
     // Display the filtered books
-    displayBooks(currentPage, filteredBooks);
+    renderPagination();
+    // displayBooks(currentPage, filteredBooks);
 }
 
 
@@ -217,7 +218,6 @@ function renderPagination() {
         paginationContainer.appendChild(nextPageLink);
     }
 }
-
 
 
 // Function to handle search input event
